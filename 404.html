@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -10,22 +10,28 @@
   html, body { height: 100%; margin: 0; }
   body {
     display: grid; place-items: center; padding: 24px;
-    background: #0B0B0B; color: #FFFBFB;
+    background: #DCDCDC; color: #111111;
     font-family: 'Segoe UI', system-ui, sans-serif; text-align: center;
   }
-  h1 { font-size: clamp(28px, 6vw, 56px); margin: 0 0 12px; letter-spacing: -.03em; }
-  p { color: #92817A; margin: 0 0 28px; }
-  a {
-    display: inline-block; padding: 14px 24px; border-radius: 999px;
-    background: #F1D8C1; color: #392417; text-decoration: none;
-    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  p { color: #5C5C5C; margin: 0 0 28px; }
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(64px, 16vw, 160px);
+    line-height: .9;
+    letter-spacing: -.06em;
   }
+  a {
+    display: inline-block; padding: 13px 24px;
+    background: #111111; color: #FFFFFF; text-decoration: none;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  }
+  a:hover { background: #DC4A3B; }
 </style>
 </head>
 <body>
   <main>
     <h1>404</h1>
-    <p>Такой страницы нет.</p>
+    <p>Такой страницы нет. Но есть работы.</p>
     <a href="/">На главную</a>
   </main>
 </body>
