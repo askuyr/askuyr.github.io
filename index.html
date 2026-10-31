@@ -107,19 +107,39 @@
         </a>
       </div>
 
-      <div class="hero__cards">
-        <figure class="hero__card hero__card--1">
-          <img src="assets/img/merch-flag.jpg" width="770" height="865" alt="" loading="lazy">
-        </figure>
-        <figure class="hero__card hero__card--2">
-          <img src="assets/img/photo.jpg" width="900" height="1100" alt="Денис Воронков" fetchpriority="high">
-        </figure>
-        <figure class="hero__card hero__card--3">
-          <img src="assets/img/forum-dark.jpg" width="1400" height="1980" alt="" loading="lazy">
-        </figure>
-        <figure class="hero__card hero__card--4">
-          <img src="assets/img/merch-tee.jpg" width="770" height="962" alt="" loading="lazy">
-        </figure>
+      <div class="hero__deck" id="heroDeck" role="group" aria-roledescription="карусель" aria-label="Избранные работы">
+        <div class="deck" id="deckStack">
+          <figure class="deck__card deck__card--board" data-title="Фирменный стиль «Нового поколения»">
+            <img src="assets/img/brand-board.jpg" width="2200" height="1284"
+                 alt="Сводный лист фирменного стиля «Новое поколение»" fetchpriority="high">
+          </figure>
+          <figure class="deck__card" data-title="Сайт Кирилла Чигирина">
+            <img src="assets/img/case-law.jpg" width="1600" height="1000"
+                 alt="Главная страница сайта юриста Кирилла Чигирина" loading="lazy">
+          </figure>
+          <figure class="deck__card" data-title="Сайт «Нового поколения»">
+            <img src="assets/img/site-novo-new.jpg" width="1600" height="1000"
+                 alt="Главная страница сайта «Новое поколение»" loading="lazy">
+          </figure>
+          <figure class="deck__card deck__card--poster" data-title="Программа форума «Мама — сердце России»">
+            <img src="assets/img/forum-light.jpg" width="1400" height="1980"
+                 alt="Программа форума «Мама — сердце России»" loading="lazy">
+          </figure>
+          <figure class="deck__card" data-title="THE SARTORIALIST CLUB">
+            <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000"
+                 alt="Главная страница сайта THE SARTORIALIST CLUB" loading="lazy">
+          </figure>
+        </div>
+
+        <div class="deck__meta">
+          <button class="deck__btn" id="deckPrev" type="button" aria-label="Предыдущая работа">←</button>
+          <p class="deck__caption" id="deckCaption">Фирменный стиль «Нового поколения»</p>
+          <p class="deck__count"><b id="deckNow">01</b> / 05</p>
+          <button class="deck__btn" id="deckNext" type="button" aria-label="Следующая работа">→</button>
+          <button class="deck__pause" id="deckPause" type="button" aria-pressed="false">Пауза</button>
+        </div>
+
+        <div class="deck__progress" aria-hidden="true"><span id="deckProgress"></span></div>
       </div>
     </div>
   </section>
@@ -615,5 +635,6 @@
 </div>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/deck.js" defer></script>
 </body>
 </html>
