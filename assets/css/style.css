@@ -275,17 +275,6 @@ ul, ol { padding: 0; list-style: none; }
   justify-content: center;
 }
 
-.hero__bar {
-  position: absolute;
-  left: 50%;
-  top: -8%;
-  width: 13.5%;
-  height: 116%;
-  transform: translateX(-50%);
-  background: var(--red);
-  z-index: 0;
-}
-
 .hero__title {
   position: relative;
   z-index: 1;
@@ -341,23 +330,26 @@ ul, ol { padding: 0; list-style: none; }
   justify-content: center;
 }
 
-/* колода карточек внизу обложки */
+/* ряд карточек внизу обложки */
 .hero__cards {
-  position: relative;
-  height: clamp(190px, 30vh, 330px);
-  margin-top: clamp(20px, 4vh, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.8vw, 26px);
+  margin-top: clamp(22px, 4vh, 46px);
+  padding: 18px 0 10px;
 }
 
 .hero__card {
-  position: absolute;
-  top: 0;
-  width: clamp(132px, 19vw, 244px);
+  position: relative;
+  flex: 0 0 clamp(130px, 15.5vw, 210px);
   aspect-ratio: 3 / 4;
   padding: 7px;
   margin: 0;
   background: var(--white);
   border: 1px solid rgba(17, 17, 17, .1);
-  box-shadow: 0 22px 44px rgba(17, 17, 17, .2);
+  box-shadow: 0 18px 36px rgba(17, 17, 17, .18);
+  transform-origin: 50% 90%;
   transition: transform .5s cubic-bezier(.2, .7, .2, 1), box-shadow .5s ease;
 }
 .hero__card img {
@@ -365,38 +357,29 @@ ul, ol { padding: 0; list-style: none; }
   height: 100%;
   object-fit: cover;
 }
-.hero__card--1 img { object-position: 50% 20%; }
+.hero__card--2 img { object-position: 50% 20%; }
 
 .hero__card--1 {
-  left: 50%;
-  z-index: 5;
-  transform: translateX(-50%) rotate(4deg);
+  z-index: 2;
+  transform: translateY(12px) rotate(-1.5deg);
 }
 .hero__card--2 {
-  left: 15%;
-  z-index: 4;
-  transform: translateX(-50%) rotate(-12deg);
+  z-index: 3;
+  transform: translateY(0) rotate(0deg);
 }
 .hero__card--3 {
-  left: 85%;
   z-index: 4;
-  transform: translateX(-50%) rotate(13deg);
+  transform: translateY(16px) rotate(1.5deg);
 }
 .hero__card--4 {
-  left: 2%;
-  z-index: 3;
-  transform: translateX(-50%) rotate(-21deg) scale(.88);
-}
-.hero__card--5 {
-  left: 98%;
-  z-index: 3;
-  transform: translateX(-50%) rotate(22deg) scale(.88);
+  z-index: 1;
+  transform: translateY(5px) rotate(0deg);
 }
 
 .hero__card:hover {
   z-index: 8;
-  transform: translateX(-50%) rotate(0deg) scale(1.03);
-  box-shadow: 0 30px 60px rgba(17, 17, 17, .28);
+  transform: translateY(0) rotate(0deg) scale(1.04);
+  box-shadow: 0 28px 56px rgba(17, 17, 17, .26);
 }
 
 /* ---------- бегущая строка ---------- */
@@ -1241,6 +1224,7 @@ ul, ol { padding: 0; list-style: none; }
   .hero__cards {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 14px;
     height: auto;
     padding: 8px 0 18px;
@@ -1311,7 +1295,6 @@ ul, ol { padding: 0; list-style: none; }
   .hero__foot-role { text-align: left; }
   .hero__actions { justify-content: flex-start; }
   .hero__title { font-size: clamp(1.8rem, 9.4vw, 3rem); }
-  .hero__bar { width: 16%; }
   .hero__top-note { display: none; }
 
   .cases { grid-template-columns: 1fr; }
