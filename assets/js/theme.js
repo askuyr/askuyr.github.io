@@ -16,7 +16,7 @@
     root.setAttribute('data-theme', theme);
     root.style.colorScheme = theme;
 
-    if (meta) meta.setAttribute('content', dark ? '#0E0E0E' : '#DCDCDC');
+    if (meta) meta.setAttribute('content', dark ? '#0B0A09' : '#F2EFE8');
 
     if (button) {
       button.setAttribute('aria-pressed', String(dark));
