@@ -1310,7 +1310,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 }
 .politics__cols {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--gutter) clamp(24px, 4vw, 64px);
   margin-top: clamp(36px, 4.4vw, 56px);
 }
@@ -1339,6 +1339,93 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   color: var(--muted);
   font-size: var(--fs-small);
 }
+
+/* ---------- зерно поверх холста ---------- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* ---------- полоса прогресса ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  height: 2px;
+  pointer-events: none;
+}
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* ---------- заголовки по словам ---------- */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: .12em;
+  margin-bottom: -.12em;
+}
+.word__in {
+  display: inline-block;
+  transform: translateY(115%);
+  transition: transform .9s var(--ease-out);
+}
+.reveal.is-in .word__in,
+html:not(.js) .word__in { transform: none; }
+
+/* ---------- шторка на фотографиях ---------- */
+.project__media,
+.place__media {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s var(--ease-out) .1s;
+}
+.project.reveal:not(.is-in) .project__media,
+.place__media.reveal:not(.is-in) { clip-path: inset(0 0 100% 0); }
+
+/* ---------- шапка при скролле ---------- */
+.site-head { transition: transform .45s var(--ease); }
+.site-head.is-hidden { transform: translateY(-100%); }
+
+/* ---------- переход между страницами ---------- */
+body.is-leaving { opacity: 0; transition: opacity .22s var(--ease); }
+
+/* ---------- наверх ---------- */
+.to-top {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 32px);
+  bottom: clamp(16px, 2.5vw, 32px);
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  background: rgba(0, 0, 0, .8);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease),
+    background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
 /* ---------- адаптивность ---------- */
 @media (max-width: 1180px) {
@@ -1429,10 +1516,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .intro .lead,
   .intro > div { grid-column: 1 / -1; }
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .intro .lead,
-  .intro > div { grid-column: 1 / -1; }
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .politics__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .section-head__text { grid-column: 1 / span 9; }
   .section-head__aside { grid-column: 1 / -1; justify-self: start; text-align: left; margin-top: 8px; }
@@ -1465,8 +1549,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .skill-list { grid-template-columns: minmax(0, 1fr); }
   .process__grid { grid-template-columns: minmax(0, 1fr); }
 
-  .cards { grid-template-columns: minmax(0, 1fr); }
-  .politics__cols { grid-template-columns: minmax(0, 1fr); }
   .cards { grid-template-columns: minmax(0, 1fr); }
   .politics__cols { grid-template-columns: minmax(0, 1fr); }
   .more-grid { grid-template-columns: minmax(0, 1fr); }
@@ -1508,5 +1590,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     transition-duration: .001ms !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .project__media, .place__media, .exp__media { transition: none; }
+  .word__in { transform: none !important; }
+  .project__media, .place__media { transition: none; clip-path: none; }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -30,6 +30,7 @@
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
 <body id="top">
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
 <header class="site-head" id="siteHead">
@@ -109,11 +110,12 @@
         <li><span class="skill-list__num">02</span><div><h3>Соцсети</h3><p>Посты, истории, обложки, информационные карточки.</p></div></li>
         <li><span class="skill-list__num">03</span><div><h3>Тексты</h3><p>Пишу и сокращаю, подстраиваю под аудиторию.</p></div></li>
         <li><span class="skill-list__num">04</span><div><h3>Видео</h3><p>Съёмка и монтаж коротких роликов для соцсетей.</p></div></li>
-        <li><span class="skill-list__num">05</span><div><h3>Организация мероприятий</h3><p>Массовые и камерные: подготовка, оформление, проведение.</p></div></li>
-        <li><span class="skill-list__num">06</span><div><h3>Нейросети</h3><p>OpenCode, Claude, ChatGPT — код, тексты, рутина.</p></div></li>
-        <li><span class="skill-list__num">07</span><div><h3>Компьютеры</h3><p>Сборка, чистка, замена термопасты, установка программ.</p></div></li>
-        <li><span class="skill-list__num">08</span><div><h3>Программы</h3><p>Figma, CapCut, GitHub — бесплатная публикация сайтов.</p></div></li>
-        <li><span class="skill-list__num">09</span><div><h3>Быстро осваиваю новое</h3><p>Сам разбираюсь в незнакомых программах и темах.</p></div></li>
+        <li><span class="skill-list__num">05</span><div><h3>Политический консалтинг</h3><p>Тезисы, тексты и материалы для общественных и политических проектов.</p></div></li>
+        <li><span class="skill-list__num">06</span><div><h3>Организация мероприятий</h3><p>Массовые и камерные: подготовка, оформление, проведение.</p></div></li>
+        <li><span class="skill-list__num">07</span><div><h3>Нейросети</h3><p>OpenCode, Claude, ChatGPT — код, тексты, рутина.</p></div></li>
+        <li><span class="skill-list__num">08</span><div><h3>Компьютеры</h3><p>Сборка, чистка, замена термопасты, установка программ.</p></div></li>
+        <li><span class="skill-list__num">09</span><div><h3>Программы</h3><p>Figma, CapCut, GitHub — бесплатная публикация сайтов.</p></div></li>
+        <li><span class="skill-list__num">10</span><div><h3>Быстро осваиваю новое</h3><p>Сам разбираюсь в незнакомых программах и темах.</p></div></li>
       </ul>
 
       <div class="process reveal" aria-label="Как я работаю">
@@ -189,12 +191,17 @@
 
       <div class="politics reveal">
         <p class="politics__lead">С 2024 года работаю с общественными и политическими проектами
-          в Адмиралтейском отделении ЛДПР — от оформления до организации событий.</p>
+          в Адмиралтейском отделении ЛДПР — от оформления и консалтинга до организации событий.</p>
         <div class="politics__cols">
           <div>
             <h3>Оформление и контент</h3>
             <p>Карточки для соцсетей, печатная продукция и материалы для мероприятий:
               макеты, тексты, подготовка к публикации.</p>
+          </div>
+          <div>
+            <h3>Политический консалтинг</h3>
+            <p>Содержание и оформление кампаний: тезисы, тексты, материалы
+              и сопровождение проектов.</p>
           </div>
           <div>
             <h3>Организация мероприятий</h3>
@@ -272,6 +279,9 @@
   </div>
 </footer>
 
+<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
+
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/fx.js" defer></script>
 </body>
 </html>

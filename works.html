@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -30,6 +30,7 @@
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
 <body id="top">
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
 <header class="site-head" id="siteHead">
@@ -277,6 +278,9 @@
   <p class="lightbox__hint" aria-hidden="true">← → листать · клик по фото — увеличить · Esc — закрыть</p>
 </div>
 
+<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
+
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/fx.js" defer></script>
 </body>
 </html>
