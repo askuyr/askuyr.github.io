@@ -91,30 +91,6 @@
     sections.forEach(function (s) { spy.observe(s); });
   }
 
-  /* ---------- фильтр работ ---------- */
-  var filters = document.getElementById('filters');
-  var projects = Array.prototype.slice.call(document.querySelectorAll('#cases .project'));
-
-  if (filters && projects.length) {
-    filters.addEventListener('click', function (e) {
-      var btn = e.target.closest('.filter');
-      if (!btn) return;
-
-      var value = btn.getAttribute('data-filter');
-
-      Array.prototype.forEach.call(filters.querySelectorAll('.filter'), function (b) {
-        var on = b === btn;
-        b.classList.toggle('is-active', on);
-        b.setAttribute('aria-pressed', String(on));
-      });
-
-      projects.forEach(function (card) {
-        var show = value === 'all' || card.getAttribute('data-cat') === value;
-        card.classList.toggle('is-hidden', !show);
-      });
-    });
-  }
-
   /* ---------- просмотр изображений ---------- */
   var lightbox = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');

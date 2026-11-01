@@ -29,17 +29,9 @@
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500); window.setTimeout(function () { var p = document.getElementById('preloader'); if (p) p.parentNode.removeChild(p); document.body.classList.remove('is-loading'); }, 3200);</script>
+<script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
-<body>
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader__inner">
-    <p class="preloader__name">Денис Воронков</p>
-    <p class="preloader__count"><span id="preloaderCount">00</span><i>%</i></p>
-  </div>
-  <div class="preloader__line"><i id="preloaderBar"></i></div>
-</div>
-<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+<body id="top">
 <a class="skip" href="#main">Перейти к содержанию</a>
 
 <header class="site-head" id="siteHead">
@@ -52,7 +44,7 @@
     <nav class="site-nav" id="siteNav" aria-label="Разделы страницы">
       <a href="#logo">Знак</a>
       <a href="#palette">Палитра</a>
-      <a href="index.html#work">Проекты</a>
+      <a href="works.html">Работы</a>
     </nav>
 
     <div class="head__actions">
@@ -78,7 +70,7 @@
         палитра и шрифты. Без мокапов и лишнего декора.</p>
       <div class="page-hero__actions">
         <a class="btn btn--solid" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт ↗</a>
-        <a class="btn" href="index.html#work">Все проекты</a>
+        <a class="btn" href="works.html">Все работы</a>
       </div>
       <ul class="meta-list">
         <li>Логотип</li>
@@ -181,7 +173,7 @@
         <p>Сайт проекта собран на этом же стиле — от типографики до кнопок.</p>
         <div class="brand-next__actions">
           <a class="btn btn--solid" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт ↗</a>
-          <a class="btn" href="index.html#work">Вернуться к проектам</a>
+          <a class="btn" href="works.html">Вернуться к работам</a>
         </div>
       </div>
     </div>
@@ -199,10 +191,9 @@
       </div>
       <div class="footer__col">
         <h2>Разделы</h2>
-        <a href="index.html#about">О себе</a>
-        <a href="index.html#work">Работы</a>
-        <a href="index.html#gallery">Галерея</a>
-        <a href="index.html#experience">Опыт</a>
+        <a href="works.html">Работы</a>
+        <a href="about.html">О себе</a>
+        <a href="contacts.html">Контакты</a>
       </div>
       <div class="footer__col">
         <h2>Документы</h2>
@@ -220,13 +211,6 @@
   </div>
 </footer>
 
-<div class="cursor" id="cursor" aria-hidden="true">
-  <span class="cursor__ring"></span>
-  <span class="cursor__label"></span>
-</div>
-
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/extras.js" defer></script>
-<script src="assets/js/fx.js" defer></script>
 </body>
 </html>
