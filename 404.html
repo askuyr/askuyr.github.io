@@ -4,45 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Страница не найдена — Денис Воронков</title>
+<meta name="theme-color" content="#000000">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="stylesheet" href="/assets/css/fonts.css">
-<style>
-  html, body { height: 100%; margin: 0; }
-  body {
-    display: grid; place-items: center; padding: 24px;
-    background: #F2EFE8; color: #151311;
-    font-family: 'Inter', system-ui, sans-serif; text-align: center;
-  }
-  p { color: #6D665C; margin: 0 0 28px; font-size: 15px; }
-  h1 {
-    margin: 0 0 12px;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(72px, 18vw, 180px);
-    font-weight: 500;
-    line-height: .85;
-    letter-spacing: -.04em;
-  }
-  a {
-    display: inline-block; padding: 13px 22px;
-    background: #151311; color: #FBF8F2; text-decoration: none;
-    font-family: ui-monospace, Consolas, monospace;
-    font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  }
-  a:hover { background: #B33A24; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #0B0A09; color: #F4EFE6; }
-    p { color: #A69D8F; }
-    a { background: #F4EFE6; color: #151311; }
-    a:hover { background: #FF6040; color: #fff; }
-  }
-</style>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <main>
-    <h1>404</h1>
-    <p>Такой страницы нет. Но есть работы.</p>
-    <a href="/">На главную</a>
+  <main class="notfound">
+    <p class="eyebrow">Ошибка · 404</p>
+    <p class="notfound__code">404</p>
+    <p class="notfound__text">Такой страницы нет. Но есть работы — они на главной.</p>
+    <div class="notfound__actions">
+      <a class="btn btn--solid" href="/">На главную</a>
+      <a class="btn" href="/#work">Смотреть работы</a>
+    </div>
   </main>
 </body>
 </html>

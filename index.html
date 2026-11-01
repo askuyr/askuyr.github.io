@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -7,7 +7,7 @@
 
 <meta name="description" content="Портфолио Дениса Воронкова: фирменный стиль, печатная продукция, соцсети и сайты. Санкт-Петербург. Резюме, примеры работ и контакты.">
 <meta name="author" content="Денис Воронков">
-<meta name="theme-color" content="#F2EFE8">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://askuyr.github.io/">
 
 <meta property="og:type" content="website">
@@ -26,18 +26,10 @@
 <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
 
-<link rel="preload" href="assets/fonts/cormorant-garamond-600-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<script>
-(function () {
-  try {
-    var saved = localStorage.getItem('theme');
-    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  } catch (e) {}
-})();
-</script>
 <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 
@@ -58,32 +50,32 @@
 </script>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
 <header class="site-head" id="siteHead">
-  <a class="brand" href="#top">
-    <span class="brand__name">Денис Воронков</span>
-    <span class="brand__role">оформление · тексты · соцсети</span>
-  </a>
+  <div class="site-head__inner">
+    <a class="brand" href="#top" aria-label="Денис Воронков — на главную">
+      <span>Денис</span>
+      <span>Воронков</span>
+    </a>
 
-  <nav class="site-nav" id="siteNav" aria-label="Разделы сайта">
-    <a href="#about">О себе</a>
-    <a href="#work">Работы</a>
-    <a href="#gallery">Галерея</a>
-    <a href="#skills">Навыки</a>
-    <a href="#experience">Опыт</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
+    <nav class="site-nav" id="siteNav" aria-label="Разделы сайта">
+      <a href="#about">О себе</a>
+      <a href="#work">Работы</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#experience">Опыт</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
 
-  <div class="head__actions">
-    <button class="theme-btn" id="themeToggle" type="button" aria-label="Включить тёмную тему" aria-pressed="false">
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
-    </button>
-    <a class="head__cta" href="assets/docs/voronkov-resume.pdf" download>Резюме <span>PDF</span></a>
-    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
-      <span></span><span></span>
-    </button>
+    <div class="head__actions">
+      <a class="pill" href="assets/docs/voronkov-resume.pdf" download>
+        Резюме <span class="pill__tag">PDF</span>
+      </a>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -92,109 +84,119 @@
   <!-- ================= ОБЛОЖКА ================= -->
   <section class="hero" id="top">
     <div class="wrap">
-      <div class="hero__grid">
-        <div class="hero__intro">
-          <p class="kicker">Портфолио · Санкт-Петербург · 2026</p>
-          <h1 class="hero__title">Денис<br><em>Воронков</em></h1>
-          <p class="hero__sub">Оформление, тексты и сайты для проектов, которым нужно выглядеть убедительно.</p>
-          <p class="hero__lead">Собираю проект целиком: внешний вид, тексты, макеты и публикация.
-            Фирменный стиль, печать, соцсети и сайты — без подрядчиков и лишних согласований.</p>
+      <div class="hero__meta">
+        <span>Портфолио</span>
+        <span>Санкт-Петербург · 2026</span>
+      </div>
 
-          <div class="hero__actions">
-            <a class="btn btn--solid" href="#work">Смотреть работы <span class="btn__note">05</span></a>
-            <a class="link-arrow" href="assets/docs/voronkov-resume.pdf" download>Скачать резюме <span>PDF · 712 КБ</span></a>
-          </div>
+      <div class="hero__stage">
+        <figure class="hero__figure">
+          <img src="assets/img/photo.jpg" width="900" height="1100"
+               alt="Денис Воронков" fetchpriority="high">
+        </figure>
 
-          <ul class="hero__facts">
-            <li><b>5</b><span>проектов в портфолио</span></li>
-            <li><b>3</b><span>сайта в публикации</span></li>
-            <li><b>2024</b><span>работаю с проектами</span></li>
-          </ul>
-        </div>
+        <h1 class="hero__title">Денис Воронков</h1>
 
-        <div class="hero__feature">
-          <div class="feature" id="feature">
-            <div class="feature__frame">
-              <figure class="feature__slide feature__slide--board is-active" data-title="Фирменный стиль «Нового поколения»">
-                <img src="assets/img/brand-board.jpg" width="2200" height="1284"
-                     alt="Сводный лист фирменного стиля «Новое поколение»" fetchpriority="high">
-              </figure>
-              <figure class="feature__slide" data-title="Сайт «Нового поколения»">
-                <img src="assets/img/site-novo-new.jpg" width="1600" height="1000"
-                     alt="Главная страница сайта «Новое поколение»" loading="lazy">
-              </figure>
-              <figure class="feature__slide" data-title="Сайт Кирилла Чигирина">
-                <img src="assets/img/case-law.jpg" width="1600" height="1000"
-                     alt="Главная страница сайта юриста Кирилла Чигирина" loading="lazy">
-              </figure>
-              <figure class="feature__slide" data-title="THE SARTORIALIST CLUB">
-                <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000"
-                     alt="Главная страница сайта THE SARTORIALIST CLUB" loading="lazy">
-              </figure>
-            </div>
+        <ul class="hero__notes" aria-label="О практике">
+          <li class="note note--a"><span class="note__line"></span><span>Санкт-Петербург</span></li>
+          <li class="note note--b"><span class="note__line"></span><span>с 2024 года</span></li>
+          <li class="note note--c"><span class="note__line"></span><span>5 проектов</span></li>
+          <li class="note note--d"><span class="note__line"></span><span>3 сайта</span></li>
+        </ul>
+      </div>
 
-            <div class="feature__bar">
-              <button class="icon-btn" id="featurePrev" type="button" aria-label="Предыдущая работа">←</button>
-              <div class="feature__meta">
-                <p class="feature__title" id="featureTitle">Фирменный стиль «Нового поколения»</p>
-                <p class="feature__count"><b id="featureNow">01</b> / 04</p>
-              </div>
-              <button class="icon-btn" id="featureNext" type="button" aria-label="Следующая работа">→</button>
-              <button class="feature__pause" id="featurePause" type="button" aria-pressed="false">Пауза</button>
-            </div>
-
-            <div class="feature__progress" aria-hidden="true"><span id="featureProgress"></span></div>
-          </div>
-        </div>
+      <div class="hero__foot">
+        <p class="hero__roles">Оформление · тексты · соцсети · сайты</p>
+        <a class="link" href="#work">Смотреть работы <span aria-hidden="true">↓</span></a>
+        <a class="link" href="assets/docs/voronkov-resume.pdf" download>Скачать резюме <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </section>
 
+  <!-- ================= ФРАГМЕНТЫ ================= -->
+  <section class="strip" aria-label="Фрагменты работ">
+    <div class="wrap">
+      <div class="strip__grid">
+        <a class="strip__item" href="#work">
+          <img src="assets/img/brand-board.jpg" width="2200" height="1284" loading="lazy"
+               alt="Фрагмент сводного листа фирменного стиля «Новое поколение»">
+          <span class="strip__cap">Брендинг</span>
+        </a>
+        <a class="strip__item" href="#work">
+          <img src="assets/img/forum-dark.jpg" width="1400" height="1980" loading="lazy"
+               alt="Фрагмент программы форума «Мама — сердце России»">
+          <span class="strip__cap">Печать</span>
+        </a>
+        <a class="strip__item" href="#work">
+          <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000" loading="lazy"
+               alt="Фрагмент главной страницы сайта THE SARTORIALIST CLUB">
+          <span class="strip__cap">Сайты</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= БЕГУЩАЯ СТРОКА ================= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <div class="ticker__group">
+        <span>Фирменный стиль</span><i></i>
+        <span>Печатная продукция</span><i></i>
+        <span>Соцсети</span><i></i>
+        <span>Сайты</span><i></i>
+        <span>Тексты</span><i></i>
+      </div>
+      <div class="ticker__group">
+        <span>Фирменный стиль</span><i></i>
+        <span>Печатная продукция</span><i></i>
+        <span>Соцсети</span><i></i>
+        <span>Сайты</span><i></i>
+        <span>Тексты</span><i></i>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= О СЕБЕ ================= -->
-  <section class="section" id="about">
+  <section class="section section--alt" id="about">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">01 / О себе</p>
-        <h2>Собираю проекты<br><em>целиком</em></h2>
+        <div class="section-head__text">
+          <p class="eyebrow">01 / О себе</p>
+          <h2 class="h2">Собираю проекты целиком</h2>
+        </div>
+        <div class="section-head__aside">
+          <p class="micro">Оформление · тексты · соцсети · сайты</p>
+        </div>
       </header>
 
-      <div class="about__grid">
-        <div class="about__text reveal">
-          <p class="lead">Придумываю внешний вид, пишу тексты, собираю макеты и довожу работу
-            до публикации.</p>
-          <p>Основное направление — фирменный стиль и личный бренд в общественных проектах,
-            печатная продукция для мероприятий и оформление соцсетей.</p>
-          <p>Технические задачи закрываю с помощью нейросетей: сам формулирую задачу, проверяю
-            результат и выкладываю готовый сайт. Учусь на юриста, поэтому умею работать
-            с документами и персональными данными — там, где важна точность формулировок.</p>
-          <p class="about__note">Не берусь за то, что не смогу сдать в срок. Если задача новая —
-            говорю об этом прямо и сначала разбираюсь.</p>
-        </div>
-
-        <aside class="about__side reveal">
-          <figure class="about__portrait">
-            <img src="assets/img/photo.jpg" width="900" height="1100" alt="Денис Воронков" loading="lazy">
-            <figcaption>Денис Воронков · Санкт-Петербург</figcaption>
-          </figure>
-
-          <ul class="facts">
-            <li class="fact"><b>5</b><span>вариантов логотипа в фирменном стиле</span></li>
-            <li class="fact"><b>8</b><span>страниц на сайте «Нового поколения»</span></li>
-            <li class="fact"><b>3</b><span>сайта в публикации — не считая этого</span></li>
-            <li class="fact"><b>2024</b><span>работаю с общественными проектами</span></li>
-          </ul>
-        </aside>
+      <div class="about__text reveal">
+        <p class="about__lead">Придумываю внешний вид, пишу тексты, собираю макеты и довожу работу
+          до публикации.</p>
+        <p>Основное направление — фирменный стиль и личный бренд в общественных проектах,
+          печатная продукция для мероприятий и оформление соцсетей.</p>
+        <p>Технические задачи закрываю с помощью нейросетей: сам формулирую задачу, проверяю
+          результат и выкладываю готовый сайт. Учусь на юриста, поэтому умею работать
+          с документами и персональными данными — там, где важна точность формулировок.</p>
+        <p class="about__note">Не берусь за то, что не смогу сдать в срок. Если задача новая —
+          говорю об этом прямо и сначала разбираюсь.</p>
       </div>
+
+      <ul class="facts reveal">
+        <li class="fact"><b data-count="5">5</b><span>вариантов логотипа в фирменном стиле</span></li>
+        <li class="fact"><b data-count="8">8</b><span>страниц на сайте «Нового поколения»</span></li>
+        <li class="fact"><b data-count="3">3</b><span>сайта в публикации — не считая этого</span></li>
+        <li class="fact"><b>2024</b><span>работаю с общественными проектами</span></li>
+      </ul>
     </div>
   </section>
 
   <!-- ================= РАБОТЫ ================= -->
   <section class="section" id="work">
     <div class="wrap">
-      <header class="section-head section-head--row reveal">
+      <header class="works-head reveal">
         <div>
-          <p class="section-label">02 / Работы</p>
-          <h2>Избранное</h2>
+          <p class="eyebrow">02 / Работы</p>
+          <h2 class="h2">Избранное</h2>
         </div>
         <div class="filters" id="filters" role="group" aria-label="Фильтр работ">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Все</button>
@@ -211,9 +213,10 @@
             <span class="project__num">01</span>
             <h3 class="project__title">Фирменный стиль «Нового поколения»</h3>
             <span class="project__tags">Логотип · Палитра · Шрифты</span>
+            <a class="project__arrow" href="branding.html" aria-label="Смотреть брендинг «Нового поколения»">↗</a>
           </div>
           <div class="project__body">
-            <figure class="project__media project__media--board">
+            <figure class="project__media">
               <img src="assets/img/brand-board.jpg" width="2200" height="1284" loading="lazy"
                    alt="Сводный лист фирменного стиля «Новое поколение»: знак, палитра и шрифты">
             </figure>
@@ -222,18 +225,19 @@
                 шрифты. Собрал всё в руководство по стилю.</p>
               <p class="project__meta">5 вариантов знака · руководство по стилю</p>
               <div class="project__links">
-                <a href="branding.html">Смотреть брендинг <span aria-hidden="true">→</span></a>
-                <a href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
+                <a class="link" href="branding.html">Смотреть брендинг <span aria-hidden="true">→</span></a>
+                <a class="link" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="project project--flip project--print reveal" data-cat="print">
+        <article class="project project--flip reveal" data-cat="print">
           <div class="project__top">
             <span class="project__num">02</span>
             <h3 class="project__title">Программа форума «Мама — сердце России»</h3>
             <span class="project__tags">Печать · Расписание · Вёрстка</span>
+            <a class="project__arrow" href="#gallery" aria-label="Посмотреть макеты программы форума">↗</a>
           </div>
           <div class="project__body">
             <figure class="project__media project__media--poster">
@@ -246,7 +250,7 @@
                 до финальных макетов.</p>
               <p class="project__meta">2 версии · формат A4</p>
               <div class="project__links">
-                <a href="#gallery">Посмотреть макеты <span aria-hidden="true">→</span></a>
+                <a class="link" href="#gallery">Посмотреть макеты <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
@@ -257,6 +261,7 @@
             <span class="project__num">03</span>
             <h3 class="project__title">Сайт «Нового поколения»</h3>
             <span class="project__tags">Структура · Тексты · Публикация</span>
+            <a class="project__arrow" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener" aria-label="Открыть сайт «Нового поколения»">↗</a>
           </div>
           <div class="project__body">
             <figure class="project__media">
@@ -269,7 +274,7 @@
                 проверку и доработку взял на себя.</p>
               <p class="project__meta">8 страниц · GitHub Pages</p>
               <div class="project__links">
-                <a href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
+                <a class="link" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -280,6 +285,7 @@
             <span class="project__num">04</span>
             <h3 class="project__title">Сайт Кирилла Чигирина</h3>
             <span class="project__tags">Структура · Оформление · Публикация</span>
+            <a class="project__arrow" href="https://askuyr.github.io/Chigirin/" target="_blank" rel="noopener" aria-label="Открыть сайт Кирилла Чигирина">↗</a>
           </div>
           <div class="project__body">
             <figure class="project__media">
@@ -292,7 +298,7 @@
                 и политика конфиденциальности.</p>
               <p class="project__meta">Лендинг и 2 правовые страницы</p>
               <div class="project__links">
-                <a href="https://askuyr.github.io/Chigirin/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
+                <a class="link" href="https://askuyr.github.io/Chigirin/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -303,6 +309,7 @@
             <span class="project__num">05</span>
             <h3 class="project__title">THE SARTORIALIST CLUB</h3>
             <span class="project__tags">Структура · Стиль · Публикация</span>
+            <a class="project__arrow" href="https://thesartorialistclub.ru/" target="_blank" rel="noopener" aria-label="Открыть сайт THE SARTORIALIST CLUB">↗</a>
           </div>
           <div class="project__body">
             <figure class="project__media">
@@ -315,7 +322,7 @@
                 и фотогалерею.</p>
               <p class="project__meta">4 страницы · собственный домен</p>
               <div class="project__links">
-                <a href="https://thesartorialistclub.ru/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
+                <a class="link" href="https://thesartorialistclub.ru/" target="_blank" rel="noopener">Открыть сайт <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -329,12 +336,16 @@
   </section>
 
   <!-- ================= ГАЛЕРЕЯ ================= -->
-  <section class="section" id="gallery">
+  <section class="section section--alt" id="gallery">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">03 / Галерея</p>
-        <h2>Работы <em>крупным планом</em></h2>
-        <p class="section-sub">Нажмите на карточку, чтобы открыть изображение целиком.</p>
+        <div class="section-head__text">
+          <p class="eyebrow">03 / Галерея</p>
+          <h2 class="h2">Работы крупным планом</h2>
+        </div>
+        <div class="section-head__aside">
+          <p class="micro">Нажмите на кадр, чтобы открыть целиком</p>
+        </div>
       </header>
 
       <div class="gallery">
@@ -393,9 +404,13 @@
   <section class="section" id="skills">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">04 / Навыки</p>
-        <h2>Что делаю <em>сам</em></h2>
-        <p class="section-sub">Без подрядчиков и передач задачи «на сторону».</p>
+        <div class="section-head__text">
+          <p class="eyebrow">04 / Навыки</p>
+          <h2 class="h2">Что делаю сам</h2>
+        </div>
+        <div class="section-head__aside">
+          <p class="micro">Без подрядчиков и передач задачи «на сторону»</p>
+        </div>
       </header>
 
       <ul class="skill-list reveal">
@@ -422,39 +437,46 @@
   </section>
 
   <!-- ================= ОПЫТ ================= -->
-  <section class="section" id="experience">
+  <section class="section section--alt" id="experience">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">05 / Опыт</p>
-        <h2>Где работал</h2>
+        <div class="section-head__text">
+          <p class="eyebrow">05 / Опыт</p>
+          <h2 class="h2">Где работал</h2>
+        </div>
+        <div class="section-head__aside">
+          <p class="micro">Санкт-Петербург · 2024 — сейчас</p>
+        </div>
       </header>
 
-      <ol class="timeline">
-        <li class="job reveal">
-          <p class="job__when">сейчас</p>
-          <div>
+      <div class="exp">
+        <ol class="exp__list">
+          <li class="job reveal">
+            <p class="job__when">сейчас</p>
             <h3>Помощник системного администратора</h3>
             <p class="job__org">ООО «Юнивес»</p>
             <p>Поддерживаю сотрудников, рабочие места и офисную технику.</p>
-          </div>
-        </li>
-        <li class="job reveal">
-          <p class="job__when">2024 — сейчас</p>
-          <div>
+          </li>
+          <li class="job reveal">
+            <p class="job__when">2024 — сейчас</p>
             <h3>Оформление и контент</h3>
             <p class="job__org">ЛДПР, Адмиралтейское отделение · Санкт-Петербург</p>
             <p>Карточки для соцсетей, печатная продукция, оформление мероприятий.</p>
-          </div>
-        </li>
-        <li class="job reveal">
-          <p class="job__when">по задачам</p>
-          <div>
+          </li>
+          <li class="job reveal">
+            <p class="job__when">по задачам</p>
             <h3>Проектная работа</h3>
             <p class="job__org">Нескоромных С. Н.</p>
             <p>Организационные и информационные задачи в местных проектах.</p>
-          </div>
-        </li>
-      </ol>
+          </li>
+        </ol>
+
+        <figure class="exp__media reveal">
+          <img src="assets/img/forum-light.jpg" width="1400" height="1980" loading="lazy"
+               alt="Программа форума «Мама — сердце России», светлая версия">
+          <figcaption>Программа форума · светлая версия</figcaption>
+        </figure>
+      </div>
 
       <div class="edu reveal">
         <p class="edu__label">Образование</p>
@@ -470,8 +492,10 @@
   <section class="section" id="more">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">06 / Что ещё могу</p>
-        <h2>Смежные задачи</h2>
+        <div class="section-head__text">
+          <p class="eyebrow">06 / Что ещё могу</p>
+          <h2 class="h2">Смежные задачи</h2>
+        </div>
       </header>
 
       <div class="more-grid reveal">
@@ -495,12 +519,43 @@
     </div>
   </section>
 
+  <!-- ================= ГДЕ СМОТРЕТЬ ================= -->
+  <section class="section section--alt" id="place">
+    <div class="wrap">
+      <div class="place">
+        <figure class="place__media reveal">
+          <img src="assets/img/case-law.jpg" width="1600" height="1000" loading="lazy"
+               alt="Главная страница сайта юриста Кирилла Чигирина">
+        </figure>
+        <div class="place__body reveal">
+          <p class="eyebrow">07 / Публикации</p>
+          <h2 class="h2">Где смотреть работы</h2>
+          <p>Три сайта открыты и работают по постоянным адресам. Оформление, тексты
+            и вёрстка — мои, публикация на GitHub Pages и собственном домене.</p>
+          <div class="place__links">
+            <a href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">
+              «Новое поколение» <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://askuyr.github.io/Chigirin/" target="_blank" rel="noopener">
+              Кирилл Чигирин <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://thesartorialistclub.ru/" target="_blank" rel="noopener">
+              THE SARTORIALIST CLUB <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= РЕКОМЕНДАЦИИ ================= -->
   <section class="section" id="reviews">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="section-label">07 / Рекомендации</p>
-        <h2>Могут подтвердить</h2>
+        <div class="section-head__text">
+          <p class="eyebrow">08 / Рекомендации</p>
+          <h2 class="h2">Могут подтвердить</h2>
+        </div>
       </header>
 
       <div class="reviews">
@@ -530,8 +585,8 @@
   <!-- ================= КОНТАКТЫ ================= -->
   <section class="contact" id="contacts">
     <div class="wrap">
-      <p class="section-label">08 / Контакты</p>
-      <h2>Обсудим<br><em>проект?</em></h2>
+      <p class="eyebrow">09 / Контакты</p>
+      <h2 class="contact__title">Обсудим проект?</h2>
       <p class="contact__sub">Оформление, тексты и соцсети. Отвечаю в тот же день.</p>
 
       <div class="contact__grid">
@@ -551,19 +606,48 @@
 
       <div class="contact__actions">
         <a class="btn btn--solid" href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
-        <a class="btn btn--ghost" href="assets/docs/voronkov-resume.docx" download>Резюме DOCX для HR</a>
-        <button class="btn btn--ghost" type="button" id="copyEmail" data-email="denisvoronkov486@gmail.com">Скопировать почту</button>
+        <a class="btn" href="assets/docs/voronkov-resume.docx" download>Резюме DOCX для HR</a>
+        <button class="btn" type="button" id="copyEmail" data-email="denisvoronkov486@gmail.com">Скопировать почту</button>
       </div>
     </div>
   </section>
 
+  <!-- ================= ШИРОКИЙ КАДР ================= -->
+  <figure class="band">
+    <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000" loading="lazy"
+         alt="Главная страница сайта THE SARTORIALIST CLUB">
+  </figure>
+
 </main>
 
 <footer class="footer">
-  <div class="wrap footer__inner">
-    <span>© <span id="year">2026</span> Денис Воронков</span>
-    <span>Санкт-Петербург · портфолио и резюме</span>
-    <a href="#top">Наверх ↑</a>
+  <div class="wrap">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h2>Контакты</h2>
+        <a href="tel:+79112686601">+7 911 268-66-01</a>
+        <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+      </div>
+      <div class="footer__col">
+        <h2>Разделы</h2>
+        <a href="#about">О себе</a>
+        <a href="#work">Работы</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#experience">Опыт</a>
+      </div>
+      <div class="footer__col">
+        <h2>Документы</h2>
+        <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
+        <a href="assets/docs/voronkov-resume.docx" download>Резюме DOCX</a>
+        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Денис Воронков</span>
+      <span>Санкт-Петербург · портфолио и резюме</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
   </div>
 </footer>
 
@@ -577,8 +661,9 @@
   <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Следующая работа">→</button>
 </div>
 
+<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
+
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/feature.js" defer></script>
-<script src="assets/js/theme.js" defer></script>
+<script src="assets/js/extras.js" defer></script>
 </body>
 </html>
