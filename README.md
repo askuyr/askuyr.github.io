@@ -69,6 +69,7 @@ assets/css/fonts.css       подключение Inter и Inter Tight
 assets/css/tokens.css      цвета, кегли, отступы, брейкпоинты
 assets/css/style.css       раскладка и компоненты
 assets/js/main.js          меню, появление блоков, фильтр, просмотр, копирование почты
+assets/js/extras.js        прогресс чтения, параллакс обложки, счётчики, кнопка «наверх»
 assets/fonts/*.woff2       Inter (текст) и Inter Tight (заголовки), кириллица + латиница
 assets/img/*               фото, обложки кейсов, галерея, OG-картинка
 assets/img/brand/*         знак в 5 вариантах
