@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
+<script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500); window.setTimeout(function () { var p = document.getElementById('preloader'); if (p) p.parentNode.removeChild(p); document.body.classList.remove('is-loading'); }, 3200);</script>
 
 <script type="application/ld+json">
 {
