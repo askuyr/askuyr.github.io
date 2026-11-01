@@ -221,7 +221,7 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, .92);
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 .site-head__inner {
@@ -1664,7 +1664,7 @@ html.has-cursor button { cursor: none; }
   pointer-events: none;
   opacity: 0;
   transition: opacity .5s var(--ease);
-  background: radial-gradient(300px 300px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .13), transparent 65%);
+  background: radial-gradient(340px 340px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .16), transparent 65%);
 }
 .hero__glow.is-on { opacity: 1; }
 
