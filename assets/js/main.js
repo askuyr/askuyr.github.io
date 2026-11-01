@@ -122,11 +122,24 @@
   var lbClose = document.getElementById('lbClose');
   var lbPrev = document.getElementById('lbPrev');
   var lbNext = document.getElementById('lbNext');
+  var lbCount = document.getElementById('lbCount');
   var items = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
   var current = 0;
   var lastFocus = null;
 
   if (lightbox && lbImg && items.length) {
+    var zoomed = false;
+
+    function pad2(n) {
+      return (n < 10 ? '0' : '') + n;
+    }
+
+    function resetZoom() {
+      zoomed = false;
+      lbImg.classList.remove('is-zoomed');
+      lbImg.style.transformOrigin = '';
+    }
+
     function setItem(i) {
       current = (i + items.length) % items.length;
       var link = items[current];
@@ -134,6 +147,8 @@
       lbImg.src = link.getAttribute('href');
       lbImg.alt = img ? img.getAttribute('alt') || '' : '';
       lbCaption.textContent = link.getAttribute('data-caption') || '';
+      if (lbCount) lbCount.textContent = pad2(current + 1) + ' / ' + pad2(items.length);
+      resetZoom();
       var many = items.length > 1;
       lbPrev.disabled = !many;
       lbNext.disabled = !many;
@@ -165,6 +180,34 @@
     lbClose.addEventListener('click', closeLightbox);
     lbPrev.addEventListener('click', function () { setItem(current - 1); });
     lbNext.addEventListener('click', function () { setItem(current + 1); });
+
+    /* увеличение по клику — точка клика становится центром */
+    lbImg.addEventListener('click', function (e) {
+      var rect = lbImg.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+      zoomed = !zoomed;
+      lbImg.style.transformOrigin = x + '% ' + y + '%';
+      lbImg.classList.toggle('is-zoomed', zoomed);
+    });
+
+    /* свайп на телефоне */
+    var touchStartX = null;
+
+    lightbox.addEventListener('touchstart', function (e) {
+      if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', function (e) {
+      if (touchStartX === null || zoomed) { touchStartX = null; return; }
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(dx) > 48) {
+        if (dx < 0) setItem(current + 1);
+        else setItem(current - 1);
+      }
+    }, { passive: true });
 
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) closeLightbox();
@@ -213,6 +256,8 @@
       toast = null;
     }, 2200);
   }
+
+  window.__toast = showToast;
 
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {

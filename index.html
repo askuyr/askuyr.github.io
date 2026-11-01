@@ -50,6 +50,13 @@
 </script>
 </head>
 <body>
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <p class="preloader__name">Денис Воронков</p>
+    <p class="preloader__count"><span id="preloaderCount">00</span><i>%</i></p>
+  </div>
+  <div class="preloader__line"><i id="preloaderBar"></i></div>
+</div>
 <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
@@ -90,6 +97,7 @@
       </div>
 
       <div class="hero__stage">
+        <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
         <figure class="hero__figure">
           <img src="assets/img/photo.jpg" width="900" height="1100"
                alt="Денис Воронков" fetchpriority="high">
@@ -608,6 +616,7 @@
         <a class="btn btn--solid" href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
         <a class="btn" href="assets/docs/voronkov-resume.docx" download>Резюме DOCX для HR</a>
         <button class="btn" type="button" id="copyEmail" data-email="denisvoronkov486@gmail.com">Скопировать почту</button>
+        <button class="btn" type="button" id="sharePage">Поделиться сайтом</button>
       </div>
     </div>
   </section>
@@ -653,17 +662,27 @@
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы" hidden>
   <button class="lightbox__close" id="lbClose" type="button" aria-label="Закрыть">×</button>
+  <span class="lightbox__count" id="lbCount">01 / 06</span>
   <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Предыдущая работа">←</button>
   <figure class="lightbox__figure">
     <img class="lightbox__img" id="lbImg" src="" alt="">
     <figcaption class="lightbox__caption" id="lbCaption"></figcaption>
   </figure>
   <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Следующая работа">→</button>
+  <p class="lightbox__hint" aria-hidden="true">← → листать · клик по фото — увеличить · Esc — закрыть</p>
+</div>
+
+<nav class="rail" id="rail" aria-label="Разделы страницы"></nav>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__ring"></span>
+  <span class="cursor__label"></span>
 </div>
 
 <a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
 
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/extras.js" defer></script>
+<script src="assets/js/fx.js" defer></script>
 </body>
 </html>

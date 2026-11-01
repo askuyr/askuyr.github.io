@@ -32,6 +32,13 @@
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
 <body>
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <p class="preloader__name">Денис Воронков</p>
+    <p class="preloader__count"><span id="preloaderCount">00</span><i>%</i></p>
+  </div>
+  <div class="preloader__line"><i id="preloaderBar"></i></div>
+</div>
 <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
@@ -213,7 +220,13 @@
   </div>
 </footer>
 
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__ring"></span>
+  <span class="cursor__label"></span>
+</div>
+
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/extras.js" defer></script>
+<script src="assets/js/fx.js" defer></script>
 </body>
 </html>
