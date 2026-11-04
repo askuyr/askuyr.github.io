@@ -3,23 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Страница не найдена — Денис Воронков</title>
-<meta name="theme-color" content="#000000">
+<title>Страница не нашлась — Денис Воронков</title>
+
+<meta name="description" content="Такой страницы нет. Вернитесь на главную или посмотрите работы.">
+<meta name="author" content="Денис Воронков">
+<meta name="theme-color" content="#f7f9f8">
 <meta name="robots" content="noindex">
-<link rel="icon" href="/assets/img/favicon.png" type="image/png">
-<link rel="stylesheet" href="/assets/css/fonts.css">
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/assets/css/style.css">
+
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="assets/img/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-  <main class="notfound">
-    <p class="eyebrow">Ошибка · 404</p>
-    <p class="notfound__code">404</p>
-    <p class="notfound__text">Такой страницы нет. Но есть работы — они на главной.</p>
-    <div class="notfound__actions">
-      <a class="btn btn--solid" href="/">На главную</a>
-      <a class="btn" href="/works.html">Смотреть работы</a>
+<body id="top">
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="head">
+  <div class="wrap head__inner">
+    <a class="head__brand" href="index.html">Денис Воронков</a>
+    <nav class="head__nav" aria-label="Разделы сайта">
+      <a href="works.html">Работы</a>
+      <a href="about.html">О себе</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--error">
+    <div class="wrap hero__inner reveal">
+      <h1 class="hero__word">404</h1>
+      <p class="hero__lead">Такой страницы нет. Возможно, адрес изменился или в ссылке
+        опечатка.</p>
+      <div class="hero__actions">
+        <a class="btn" href="index.html">На главную</a>
+        <a class="link" href="works.html">Смотреть работы</a>
+      </div>
     </div>
-  </main>
+  </section>
+</main>
+
+<footer class="end end--error">
+  <div class="wrap">
+    <div class="end__foot">
+      <a href="tel:+79112686601">+7 911 268-66-01</a>
+      <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+      <div class="end__docs">
+        <span>© <span id="year">2026</span> Денис Воронков</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

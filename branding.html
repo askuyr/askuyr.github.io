@@ -7,7 +7,7 @@
 
 <meta name="description" content="Фирменный стиль «Нового поколения»: знак в пяти вариантах, палитра и шрифты. Проект Дениса Воронкова.">
 <meta name="author" content="Денис Воронков">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="canonical" href="https://askuyr.github.io/branding.html">
 
 <meta property="og:type" content="article">
@@ -25,196 +25,143 @@
 <link rel="icon" href="assets/img/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
-<link rel="preload" href="assets/fonts/inter-tight-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
 <body id="top">
-<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
-<header class="site-head" id="siteHead">
-  <div class="site-head__inner">
-    <a class="brand" href="index.html" aria-label="Денис Воронков — на главную">
-      <span>Денис</span>
-      <span>Воронков</span>
-    </a>
-
-    <nav class="site-nav" id="siteNav" aria-label="Разделы страницы">
+<header class="head">
+  <div class="wrap head__inner">
+    <a class="head__brand" href="index.html">Денис Воронков</a>
+    <button class="head__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav class="head__nav" id="nav" aria-label="Разделы страницы">
       <a href="#logo">Знак</a>
       <a href="#palette">Палитра</a>
       <a href="works.html">Работы</a>
+      <a href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Сайт проекта ↗</a>
     </nav>
-
-    <div class="head__actions">
-      <a class="pill" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">
-        Сайт проекта <span class="pill__tag">↗</span>
-      </a>
-      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
-        <span></span><span></span>
-      </button>
-    </div>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ================= ОБЛОЖКА ================= -->
-  <section class="page-hero" id="top">
-    <div class="wrap">
-      <a class="back-link" href="index.html">← На главную</a>
-      <p class="eyebrow">Проект · Брендинг</p>
+  <section class="page-hero">
+    <div class="wrap reveal">
       <h1 class="page-hero__title">Новое поколение</h1>
       <p class="page-hero__lead">Фирменный стиль молодёжной организации: знак в пяти вариантах,
         палитра и шрифты. Без мокапов и лишнего декора.</p>
-      <div class="page-hero__actions">
-        <a class="btn btn--solid" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт ↗</a>
-        <a class="btn" href="works.html">Все работы</a>
+      <div class="hero__actions">
+        <a class="btn" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт ↗</a>
+        <a class="link" href="works.html">Все работы</a>
       </div>
-      <ul class="meta-list">
-        <li>Логотип</li>
-        <li>Палитра</li>
-        <li>Шрифты</li>
-      </ul>
     </div>
   </section>
 
   <!-- ================= ЗНАК ================= -->
   <section class="section" id="logo">
     <div class="wrap">
-      <header class="section-head reveal">
-        <div class="section-head__text">
-          <p class="eyebrow">01 / Знак</p>
-          <h2 class="h2">Пять вариантов</h2>
+      <div class="reveal">
+        <div class="sec-head">
+          <h2>Пять вариантов</h2>
+          <p class="sec-head__note">Под светлый, тёмный, тауп и кофейный фоны.</p>
         </div>
-        <div class="section-head__aside">
-          <p class="micro">Под светлый, тёмный, тауп и кофейный фоны</p>
-        </div>
-      </header>
 
-      <div class="brand-logos">
-        <figure class="brand-logo brand-logo--wide reveal" style="background:#FFFBFB">
-          <img src="assets/img/brand/logo-black.png" width="700" height="309" loading="lazy"
-               alt="Чёрный знак «Новое поколение» на светлом фоне">
-          <figcaption>На светлом</figcaption>
-        </figure>
-        <figure class="brand-logo is-dark reveal" style="background:#0B0B0B">
-          <img src="assets/img/brand/logo-white.png" width="700" height="309" loading="lazy"
-               alt="Белый знак «Новое поколение» на чёрном фоне">
-          <figcaption>На чёрном</figcaption>
-        </figure>
-        <figure class="brand-logo is-dark reveal" style="background:#000500">
-          <img src="assets/img/brand/logo-cream.png" width="700" height="309" loading="lazy"
-               alt="Кремовый знак «Новое поколение» на тёмном фоне">
-          <figcaption>Кремовый</figcaption>
-        </figure>
-        <figure class="brand-logo is-dark reveal" style="background:#92817A">
-          <img src="assets/img/brand/logo-taupe.png" width="700" height="309" loading="lazy"
-               alt="Светлый знак «Новое поколение» на тауп">
-          <figcaption>На тауп</figcaption>
-        </figure>
-        <figure class="brand-logo is-dark reveal" style="background:#362417">
-          <img src="assets/img/brand/logo-coffee.png" width="700" height="309" loading="lazy"
-               alt="Кремовый знак «Новое поколение» на кофейном фоне">
-          <figcaption>На кофе</figcaption>
-        </figure>
+        <div class="brand-logos">
+          <figure class="brand-logo reveal" style="background:#FFFBFB">
+            <img src="assets/img/brand/logo-black.png" width="700" height="309" loading="lazy"
+                 alt="Чёрный знак «Новое поколение» на светлом фоне">
+            <figcaption>На светлом</figcaption>
+          </figure>
+          <figure class="brand-logo is-dark reveal" style="background:#0B0B0B">
+            <img src="assets/img/brand/logo-white.png" width="700" height="309" loading="lazy"
+                 alt="Белый знак «Новое поколение» на чёрном фоне">
+            <figcaption>На чёрном</figcaption>
+          </figure>
+          <figure class="brand-logo is-dark reveal" style="background:#000500">
+            <img src="assets/img/brand/logo-cream.png" width="700" height="309" loading="lazy"
+                 alt="Кремовый знак «Новое поколение» на тёмном фоне">
+            <figcaption>Кремовый</figcaption>
+          </figure>
+          <figure class="brand-logo is-dark reveal" style="background:#92817A">
+            <img src="assets/img/brand/logo-taupe.png" width="700" height="309" loading="lazy"
+                 alt="Светлый знак «Новое поколение» на тауп">
+            <figcaption>На тауп</figcaption>
+          </figure>
+          <figure class="brand-logo is-dark reveal" style="background:#362417">
+            <img src="assets/img/brand/logo-coffee.png" width="700" height="309" loading="lazy"
+                 alt="Кремовый знак «Новое поколение» на кофейном фоне">
+            <figcaption>На кофе</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= ПАЛИТРА ================= -->
-  <section class="section section--alt" id="palette">
+  <section class="section section--surface" id="palette">
     <div class="wrap">
-      <header class="section-head reveal">
-        <div class="section-head__text">
-          <p class="eyebrow">02 / Палитра</p>
-          <h2 class="h2">Пять цветов</h2>
+      <div class="reveal">
+        <div class="sec-head">
+          <h2>Пять цветов</h2>
+          <p class="sec-head__note">Коды одинаково работают на экране и в печати.</p>
         </div>
-        <div class="section-head__aside">
-          <p class="micro">Коды одинаково работают на экране и в печати</p>
-        </div>
-      </header>
 
-      <ul class="brand-palette reveal">
-        <li class="brand-swatch">
-          <span class="brand-swatch__chip" style="background:#000500"></span>
-          <span class="brand-swatch__name">Black</span>
-          <span class="brand-swatch__hex">#000500</span>
-        </li>
-        <li class="brand-swatch">
-          <span class="brand-swatch__chip" style="background:#362417"></span>
-          <span class="brand-swatch__name">Coffee</span>
-          <span class="brand-swatch__hex">#362417</span>
-        </li>
-        <li class="brand-swatch">
-          <span class="brand-swatch__chip" style="background:#92817A"></span>
-          <span class="brand-swatch__name">Taupe</span>
-          <span class="brand-swatch__hex">#92817A</span>
-        </li>
-        <li class="brand-swatch">
-          <span class="brand-swatch__chip" style="background:#F1DABF"></span>
-          <span class="brand-swatch__name">Almond</span>
-          <span class="brand-swatch__hex">#F1DABF</span>
-        </li>
-        <li class="brand-swatch">
-          <span class="brand-swatch__chip" style="background:#FFFBFB"></span>
-          <span class="brand-swatch__name">Snow</span>
-          <span class="brand-swatch__hex">#FFFBFB</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= ДАЛЬШЕ ================= -->
-  <section class="section" id="next">
-    <div class="wrap">
-      <div class="brand-next reveal">
-        <p>Сайт проекта собран на этом же стиле — от типографики до кнопок.</p>
-        <div class="brand-next__actions">
-          <a class="btn btn--solid" href="https://askuyr.github.io/novoepokolenie-site/" target="_blank" rel="noopener">Открыть сайт ↗</a>
-          <a class="btn" href="works.html">Вернуться к работам</a>
-        </div>
+        <ul class="brand-palette">
+          <li class="brand-swatch">
+            <span class="brand-swatch__chip" style="background:#000500"></span>
+            <span class="brand-swatch__name">Black</span>
+            <span class="brand-swatch__hex">#000500</span>
+          </li>
+          <li class="brand-swatch">
+            <span class="brand-swatch__chip" style="background:#362417"></span>
+            <span class="brand-swatch__name">Coffee</span>
+            <span class="brand-swatch__hex">#362417</span>
+          </li>
+          <li class="brand-swatch">
+            <span class="brand-swatch__chip" style="background:#92817A"></span>
+            <span class="brand-swatch__name">Taupe</span>
+            <span class="brand-swatch__hex">#92817A</span>
+          </li>
+          <li class="brand-swatch">
+            <span class="brand-swatch__chip" style="background:#F1DABF"></span>
+            <span class="brand-swatch__name">Almond</span>
+            <span class="brand-swatch__hex">#F1DABF</span>
+          </li>
+          <li class="brand-swatch">
+            <span class="brand-swatch__chip" style="background:#FFFBFB"></span>
+            <span class="brand-swatch__name">Snow</span>
+            <span class="brand-swatch__hex">#FFFBFB</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
 </main>
-
-<footer class="footer">
+<footer class="end">
   <div class="wrap">
-    <div class="footer__cols">
-      <div class="footer__col">
-        <h2>Контакты</h2>
+    <div class="end__word" aria-hidden="true">Воронков</div>
+    <div class="reveal">
+      <p class="end__lead">Оформление, тексты, мероприятия и сайты. Отвечаю в тот же день.</p>
+      <a class="end__mail" href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+      <div class="end__foot">
         <a href="tel:+79112686601">+7 911 268-66-01</a>
-        <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+        <span>Санкт-Петербург</span>
+        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub ↗</a>
+        <div class="end__docs">
+          <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
+          <a href="assets/docs/voronkov-resume.docx" download>DOCX</a>
+          <span>© <span id="year">2026</span> Денис Воронков</span>
+        </div>
       </div>
-      <div class="footer__col">
-        <h2>Разделы</h2>
-        <a href="works.html">Работы</a>
-        <a href="about.html">О себе</a>
-        <a href="contacts.html">Контакты</a>
-      </div>
-      <div class="footer__col">
-        <h2>Документы</h2>
-        <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
-        <a href="assets/docs/voronkov-resume.docx" download>Резюме DOCX</a>
-        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Денис Воронков</span>
-      <span>Брендинг · «Новое поколение»</span>
-      <a href="index.html">На главную ↑</a>
     </div>
   </div>
 </footer>
 
-<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
-
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/fx.js" defer></script>
 </body>
 </html>

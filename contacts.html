@@ -7,7 +7,7 @@
 
 <meta name="description" content="Связаться с Денисом Воронковым: телефон, почта, GitHub. Оформление, тексты, мероприятия и сайты. Санкт-Петербург.">
 <meta name="author" content="Денис Воронков">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="canonical" href="https://askuyr.github.io/contacts.html">
 
 <meta property="og:type" content="website">
@@ -21,45 +21,32 @@
 <link rel="icon" href="assets/img/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
-<link rel="preload" href="assets/fonts/inter-tight-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add('js'); window.setTimeout(function () { if (!window.__siteReady) document.documentElement.classList.remove('js'); }, 2500);</script>
 </head>
 <body id="top">
-<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
-<header class="site-head" id="siteHead">
-  <div class="site-head__inner">
-    <a class="brand" href="index.html" aria-label="Денис Воронков — на главную">
-      <span>Денис</span>
-      <span>Воронков</span>
-    </a>
-
-    <nav class="site-nav" id="siteNav" aria-label="Разделы сайта">
+<header class="head">
+  <div class="wrap head__inner">
+    <a class="head__brand" href="index.html">Денис Воронков</a>
+    <button class="head__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav class="head__nav" id="nav" aria-label="Разделы сайта">
       <a href="works.html">Работы</a>
       <a href="about.html">О себе</a>
       <a href="contacts.html" aria-current="page">Контакты</a>
+      <a href="assets/docs/voronkov-resume.pdf" download>Резюме ↓</a>
     </nav>
-
-    <div class="head__actions">
-      <a class="pill" href="assets/docs/voronkov-resume.pdf" download>
-        Резюме <span class="pill__tag">PDF</span>
-      </a>
-      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
-        <span></span><span></span>
-      </button>
-    </div>
   </div>
 </header>
 
 <main id="main">
 
   <section class="page-hero">
-    <div class="wrap">
-      <p class="eyebrow">Контакты</p>
+    <div class="wrap reveal">
       <h1 class="page-hero__title">Обсудим проект?</h1>
       <p class="page-hero__lead">Оформление, тексты, мероприятия, политический консалтинг
         и сайты. Отвечаю в тот же день.</p>
@@ -68,67 +55,93 @@
 
   <section class="section section--tight">
     <div class="wrap">
-      <div class="contact__grid reveal">
-        <a class="contact__item" href="tel:+79112686601">
-          <span class="contact__label">Телефон</span>
-          <span class="contact__value">+7 911 268-66-01</span>
+      <div class="contact-links reveal">
+        <a class="contact-link" href="tel:+79112686601">
+          <b>+7 911 268-66-01</b>
+          <span>Телефон</span>
         </a>
-        <a class="contact__item" href="mailto:denisvoronkov486@gmail.com">
-          <span class="contact__label">Почта</span>
-          <span class="contact__value">denisvoronkov486@gmail.com</span>
+        <a class="contact-link" href="mailto:denisvoronkov486@gmail.com">
+          <b>denisvoronkov486@gmail.com</b>
+          <span>Почта</span>
         </a>
-        <a class="contact__item" href="https://github.com/askuyr" target="_blank" rel="noopener">
-          <span class="contact__label">GitHub</span>
-          <span class="contact__value">github.com/askuyr</span>
+        <a class="contact-link" href="https://github.com/askuyr" target="_blank" rel="noopener">
+          <b>github.com/askuyr</b>
+          <span>GitHub</span>
         </a>
       </div>
 
-      <div class="contact__actions reveal">
-        <a class="btn btn--solid" href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
+      <div class="contact-actions reveal">
+        <a class="btn" href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
         <a class="btn" href="assets/docs/voronkov-resume.docx" download>Резюме DOCX для HR</a>
         <button class="btn" type="button" id="copyEmail" data-email="denisvoronkov486@gmail.com">Скопировать почту</button>
       </div>
 
-      <p class="contact__note reveal">Пишите в почту или звоните — расскажу, что могу сделать
+      <p class="contact-note reveal">Пишите в почту или звоните — расскажу, что могу сделать
         по задаче и в какие сроки.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="sec-head">
+          <h2>Пока смотрите работы</h2>
+          <p class="sec-head__note">Пять проектов: фирменный стиль, программа форума
+            и три сайта в публикации.</p>
+        </div>
+        <div class="strip">
+          <figure class="strip__item reveal">
+            <a href="works.html#case-brand" aria-label="Фирменный стиль «Нового поколения»">
+              <img src="assets/img/brand-board.jpg" width="2200" height="1284" loading="lazy" alt="">
+            </a>
+            <figcaption>Фирменный стиль</figcaption>
+          </figure>
+          <figure class="strip__item reveal">
+            <a href="works.html#case-print" aria-label="Программа форума «Мама — сердце России»">
+              <img src="assets/img/forum-light.jpg" width="1400" height="1980" loading="lazy" alt="">
+            </a>
+            <figcaption>Программа форума</figcaption>
+          </figure>
+          <figure class="strip__item reveal">
+            <a href="works.html#case-law" aria-label="Сайт Кирилла Чигирина">
+              <img src="assets/img/case-law.jpg" width="1600" height="1000" loading="lazy" alt="">
+            </a>
+            <figcaption>Сайт Кирилла Чигирина</figcaption>
+          </figure>
+          <figure class="strip__item reveal">
+            <a href="works.html#case-sarto" aria-label="THE SARTORIALIST CLUB">
+              <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000" loading="lazy" alt="">
+            </a>
+            <figcaption>THE SARTORIALIST CLUB</figcaption>
+          </figure>
+        </div>
+        <p class="names__more reveal"><a class="link" href="works.html">Все работы с описанием и ссылками</a></p>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
+<footer class="end">
   <div class="wrap">
-    <div class="footer__cols">
-      <div class="footer__col">
-        <h2>Контакты</h2>
+    <div class="end__word" aria-hidden="true">Воронков</div>
+    <div class="reveal">
+      <p class="end__lead">Санкт-Петербург. Оформление, тексты, мероприятия и сайты.</p>
+      <a class="end__mail" href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+      <div class="end__foot">
         <a href="tel:+79112686601">+7 911 268-66-01</a>
-        <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+        <span>Санкт-Петербург</span>
+        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub ↗</a>
+        <div class="end__docs">
+          <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
+          <a href="assets/docs/voronkov-resume.docx" download>DOCX</a>
+          <span>© <span id="year">2026</span> Денис Воронков</span>
+        </div>
       </div>
-      <div class="footer__col">
-        <h2>Разделы</h2>
-        <a href="works.html">Работы</a>
-        <a href="about.html">О себе</a>
-        <a href="contacts.html">Контакты</a>
-      </div>
-      <div class="footer__col">
-        <h2>Документы</h2>
-        <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
-        <a href="assets/docs/voronkov-resume.docx" download>Резюме DOCX</a>
-        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Денис Воронков</span>
-      <span>Санкт-Петербург · портфолио и резюме</span>
-      <a href="#top">Наверх ↑</a>
     </div>
   </div>
 </footer>
 
-<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
-
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/fx.js" defer></script>
 </body>
 </html>

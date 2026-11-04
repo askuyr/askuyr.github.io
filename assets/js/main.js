@@ -1,266 +1,194 @@
-/* Меню, появление блоков, фильтр работ, просмотр и копирование почты */
+/* Денис Воронков — меню, появление блоков, просмотр работ, копирование почты. */
 (function () {
-  'use strict';
+  "use strict";
 
+  var doc = document;
   window.__siteReady = true;
 
-  var head = document.getElementById('siteHead');
-  var burger = document.getElementById('burger');
-  var nav = document.getElementById('siteNav');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var year = doc.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- мобильное меню ---------- */
-  if (burger && head && nav) {
-    burger.addEventListener('click', function () {
-      var open = head.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', String(open));
+  /* ---------- меню ---------- */
+  var toggle = doc.getElementById("navToggle");
+  var nav = doc.getElementById("nav");
+
+  if (toggle && nav) {
+    function setMenu(open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Закрыть" : "Меню";
+      doc.body.style.overflow = open ? "hidden" : "";
+      if (open) {
+        var first = nav.querySelector("a");
+        if (first) first.focus();
+      }
+    }
+
+    toggle.addEventListener("click", function () {
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
     });
 
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        head.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setMenu(false);
+    });
+
+    doc.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setMenu(false);
+        toggle.focus();
       }
     });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && head.classList.contains('is-open')) {
-        head.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        burger.focus();
-      }
-    });
-
-    document.addEventListener('click', function (e) {
-      if (head.classList.contains('is-open') && !head.contains(e.target)) {
-        head.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-      }
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 820) setMenu(false);
     });
   }
 
   /* ---------- появление блоков ---------- */
-  var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var reveals = Array.prototype.slice.call(doc.querySelectorAll(".reveal"));
 
-  if (!('IntersectionObserver' in window) || reduceMotion) {
-    revealItems.forEach(function (el) { el.classList.add('is-in'); });
-  } else {
-    document.querySelectorAll('.skill-list, .process__grid, .reviews, .more-grid').forEach(function (group) {
-      Array.prototype.forEach.call(group.children, function (child, i) {
-        child.style.setProperty('--reveal-delay', (i % 4) * 60 + 'ms');
-      });
-    });
+  function showAll() {
+    reveals.forEach(function (block) { block.classList.add("is-in"); });
+  }
 
-    var revealObserver = new IntersectionObserver(function (entries) {
+  if ("IntersectionObserver" in window && reveals.length) {
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          revealObserver.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        var kids = entry.target.children;
+        for (var i = 0; i < kids.length; i++) {
+          kids[i].style.transitionDelay = (i * 70) + "ms";
         }
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
 
-    revealItems.forEach(function (el) { revealObserver.observe(el); });
+    reveals.forEach(function (block) { observer.observe(block); });
+  } else {
+    showAll();
   }
 
-  /* ---------- активный пункт меню ---------- */
-  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
-  var linkMap = {};
+  /* ---------- имя на обложке уходит вглубь при скролле ---------- */
+  var word = doc.querySelector("[data-hero-word]");
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  Array.prototype.forEach.call(document.querySelectorAll('.site-nav a'), function (a) {
-    var href = a.getAttribute('href') || '';
-    if (href.charAt(0) === '#') linkMap[href.slice(1)] = a;
-  });
+  if (word && !still) {
+    var ticking = false;
 
-  if ('IntersectionObserver' in window && sections.length) {
-    var spyState = {};
-    var spyOrder = sections.filter(function (s) { return linkMap[s.id]; })
-      .map(function (s) { return s.id; });
+    var update = function () {
+      ticking = false;
+      var progress = Math.min((window.scrollY || 0) / (window.innerHeight * 1.2 || 1), 1);
+      word.style.transform = "scale(" + (1 - progress * 0.07).toFixed(4) + ")";
+    };
 
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) { spyState[entry.target.id] = entry.isIntersecting; });
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }, { passive: true });
 
-      var activeId = null;
-      spyOrder.forEach(function (id) { if (spyState[id]) activeId = id; });
-
-      Object.keys(linkMap).forEach(function (id) {
-        linkMap[id].classList.toggle('is-active', id === activeId);
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-
-    sections.forEach(function (s) { spy.observe(s); });
+    update();
   }
 
-  /* ---------- просмотр изображений ---------- */
-  var lightbox = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lbImg');
-  var lbCaption = document.getElementById('lbCaption');
-  var lbClose = document.getElementById('lbClose');
-  var lbPrev = document.getElementById('lbPrev');
-  var lbNext = document.getElementById('lbNext');
-  var lbCount = document.getElementById('lbCount');
-  var items = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
-  var current = 0;
-  var lastFocus = null;
+  /* ---------- просмотр работ ---------- */
+  var box = doc.getElementById("lightbox");
 
-  if (lightbox && lbImg && items.length) {
-    var zoomed = false;
+  if (box) {
+    var links = Array.prototype.slice.call(doc.querySelectorAll("[data-lightbox]"));
+    var lbImg = doc.getElementById("lbImg");
+    var lbCaption = doc.getElementById("lbCaption");
+    var lbCount = doc.getElementById("lbCount");
+    var index = 0;
+    var lastFocus = null;
 
-    function pad2(n) {
-      return (n < 10 ? '0' : '') + n;
-    }
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
 
-    function resetZoom() {
-      zoomed = false;
-      lbImg.classList.remove('is-zoomed');
-      lbImg.style.transformOrigin = '';
-    }
+    var show = function (i) {
+      if (!links.length) return;
+      index = (i + links.length) % links.length;
+      var link = links[index];
+      var source = link.querySelector("img");
+      lbImg.src = link.getAttribute("href");
+      lbImg.alt = source ? source.alt : "";
+      lbCaption.textContent = link.getAttribute("data-caption") || "";
+      lbCount.textContent = pad(index + 1) + " / " + pad(links.length);
+    };
 
-    function setItem(i) {
-      current = (i + items.length) % items.length;
-      var link = items[current];
-      var img = link.querySelector('img');
-      lbImg.src = link.getAttribute('href');
-      lbImg.alt = img ? img.getAttribute('alt') || '' : '';
-      lbCaption.textContent = link.getAttribute('data-caption') || '';
-      if (lbCount) lbCount.textContent = pad2(current + 1) + ' / ' + pad2(items.length);
-      resetZoom();
-      var many = items.length > 1;
-      lbPrev.disabled = !many;
-      lbNext.disabled = !many;
-    }
+    var open = function (i) {
+      lastFocus = doc.activeElement;
+      show(i);
+      box.hidden = false;
+      doc.body.style.overflow = "hidden";
+      doc.getElementById("lbClose").focus();
+    };
 
-    function openLightbox(i) {
-      lastFocus = document.activeElement;
-      setItem(i);
-      lightbox.hidden = false;
-      document.body.classList.add('is-locked');
-      lbClose.focus();
-    }
+    var close = function () {
+      box.hidden = true;
+      doc.body.style.overflow = "";
+      if (lastFocus) lastFocus.focus();
+    };
 
-    function closeLightbox() {
-      lightbox.hidden = true;
-      document.body.classList.remove('is-locked');
-      lbImg.removeAttribute('src');
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-
-    items.forEach(function (link, i) {
-      link.addEventListener('click', function (e) {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-        e.preventDefault();
-        openLightbox(i);
+    links.forEach(function (link, i) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        open(i);
       });
     });
 
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', function () { setItem(current - 1); });
-    lbNext.addEventListener('click', function () { setItem(current + 1); });
+    doc.getElementById("lbClose").addEventListener("click", close);
+    doc.getElementById("lbPrev").addEventListener("click", function () { show(index - 1); });
+    doc.getElementById("lbNext").addEventListener("click", function () { show(index + 1); });
 
-    /* увеличение по клику — точка клика становится центром */
-    lbImg.addEventListener('click', function (e) {
-      var rect = lbImg.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      var x = ((e.clientX - rect.left) / rect.width) * 100;
-      var y = ((e.clientY - rect.top) / rect.height) * 100;
-      zoomed = !zoomed;
-      lbImg.style.transformOrigin = x + '% ' + y + '%';
-      lbImg.classList.toggle('is-zoomed', zoomed);
+    box.addEventListener("click", function (event) {
+      if (event.target === box) close();
     });
 
-    /* свайп на телефоне */
-    var touchStartX = null;
-
-    lightbox.addEventListener('touchstart', function (e) {
-      if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    lightbox.addEventListener('touchend', function (e) {
-      if (touchStartX === null || zoomed) { touchStartX = null; return; }
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      touchStartX = null;
-      if (Math.abs(dx) > 48) {
-        if (dx < 0) setItem(current + 1);
-        else setItem(current - 1);
-      }
-    }, { passive: true });
-
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (lightbox.hidden) return;
-
-      if (e.key === 'Escape') {
-        closeLightbox();
-      } else if (e.key === 'ArrowLeft') {
-        setItem(current - 1);
-      } else if (e.key === 'ArrowRight') {
-        setItem(current + 1);
-      } else if (e.key === 'Tab') {
-        var focusable = lightbox.querySelectorAll('button');
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
+    doc.addEventListener("keydown", function (event) {
+      if (box.hidden) return;
+      if (event.key === "Escape") close();
+      if (event.key === "ArrowLeft") show(index - 1);
+      if (event.key === "ArrowRight") show(index + 1);
     });
   }
 
   /* ---------- копирование почты ---------- */
-  var copyBtn = document.getElementById('copyEmail');
-  var toast = null;
+  var copy = doc.getElementById("copyEmail");
 
-  function showToast(text) {
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.setAttribute('role', 'status');
-      toast.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);padding:12px 20px;background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;z-index:400;';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = text;
-    window.clearTimeout(showToast._t);
-    showToast._t = window.setTimeout(function () {
-      if (toast && toast.parentNode) toast.parentNode.removeChild(toast);
-      toast = null;
-    }, 2200);
-  }
+  if (copy) {
+    var reset = function () {
+      copy.textContent = "Скопировать почту";
+    };
 
-  window.__toast = showToast;
+    var done = function () {
+      copy.textContent = "Скопировано";
+      window.setTimeout(reset, 2000);
+    };
 
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function () {
-      var email = copyBtn.getAttribute('data-email');
-      var done = function () { showToast('Почта скопирована'); };
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(email).then(done).catch(fallback);
-      } else {
-        fallback();
+    var fallback = function (email) {
+      var field = doc.createElement("textarea");
+      field.value = email;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      doc.body.appendChild(field);
+      field.select();
+      try {
+        doc.execCommand("copy");
+        done();
+      } catch (error) {
+        /* остаётся ручное копирование из ссылки рядом */
       }
+      doc.body.removeChild(field);
+    };
 
-      function fallback() {
-        var ta = document.createElement('textarea');
-        ta.value = email;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); done(); }
-        catch (err) { showToast('Не получилось — выделите вручную'); }
-        document.body.removeChild(ta);
+    copy.addEventListener("click", function () {
+      var email = copy.getAttribute("data-email");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, function () { fallback(email); });
+      } else {
+        fallback(email);
       }
     });
   }
-
-  /* ---------- год ---------- */
-  var year = document.getElementById('year');
-  if (year) year.textContent = String(new Date().getFullYear());
 })();

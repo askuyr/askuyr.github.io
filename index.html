@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Денис Воронков — дизайн, тексты, мероприятия</title>
+<title>Денис Воронков — оформление, тексты, мероприятия</title>
 
 <meta name="description" content="Портфолио Дениса Воронкова: фирменный стиль, печатная продукция, соцсети, сайты и организация мероприятий. Санкт-Петербург.">
 <meta name="author" content="Денис Воронков">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="canonical" href="https://askuyr.github.io/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Денис Воронков">
-<meta property="og:title" content="Денис Воронков — дизайн, тексты, мероприятия">
+<meta property="og:title" content="Денис Воронков — оформление, тексты, мероприятия">
 <meta property="og:description" content="Фирменный стиль, печать, сайты и организация мероприятий. Пять работ, которые можно открыть и рассмотреть крупнее.">
 <meta property="og:url" content="https://askuyr.github.io/">
 <meta property="og:image" content="https://askuyr.github.io/assets/img/og.jpg">
@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
 
-<link rel="preload" href="assets/fonts/inter-tight-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/inter-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lora-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -50,185 +50,119 @@
 </script>
 </head>
 <body id="top">
-<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
-<header class="site-head" id="siteHead">
-  <div class="site-head__inner">
-    <a class="brand" href="index.html" aria-label="Денис Воронков — на главную">
-      <span>Денис</span>
-      <span>Воронков</span>
-    </a>
-
-    <nav class="site-nav" id="siteNav" aria-label="Разделы сайта">
+<header class="head">
+  <div class="wrap head__inner">
+    <a class="head__brand" href="index.html">Денис Воронков</a>
+    <button class="head__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav class="head__nav" id="nav" aria-label="Разделы сайта">
       <a href="works.html">Работы</a>
       <a href="about.html">О себе</a>
       <a href="contacts.html">Контакты</a>
+      <a href="assets/docs/voronkov-resume.pdf" download>Резюме ↓</a>
     </nav>
-
-    <div class="head__actions">
-      <a class="pill" href="assets/docs/voronkov-resume.pdf" download>
-        Резюме <span class="pill__tag">PDF</span>
-      </a>
-      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
-        <span></span><span></span>
-      </button>
-    </div>
   </div>
 </header>
 
 <main id="main">
 
   <!-- ================= ОБЛОЖКА ================= -->
-  <section class="hero" id="hero">
-    <div class="wrap">
-      <div class="hero__meta">
-        <span>Портфолио</span>
-        <span>Санкт-Петербург · 2026</span>
-      </div>
-
-      <div class="hero__stage">
-        <figure class="hero__figure">
-          <img src="assets/img/photo.jpg" width="900" height="1100"
-               alt="Денис Воронков" fetchpriority="high">
-        </figure>
-
-        <h1 class="hero__title">Денис Воронков</h1>
-
-        <ul class="hero__notes" aria-label="О практике">
-          <li class="note note--a"><span class="note__line"></span><span>Санкт-Петербург</span></li>
-          <li class="note note--b"><span class="note__line"></span><span>с 2024 года</span></li>
-          <li class="note note--c"><span class="note__line"></span><span>5 проектов</span></li>
-          <li class="note note--d"><span class="note__line"></span><span>3 сайта</span></li>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <h1 class="hero__word" data-hero-word>Воронков</h1>
+      <div class="hero__top reveal">
+        <div>
+          <p class="hero__lead">Оформление, тексты и мероприятия. Фирменный стиль, печать и сайты
+            для общественных проектов. Санкт-Петербург, с 2024 года.</p>
+          <div class="hero__actions">
+            <a class="btn" href="works.html">Смотреть работы</a>
+            <a class="link" href="assets/docs/voronkov-resume.pdf" download>Резюме, PDF</a>
+          </div>
+        </div>
+        <ul class="hero__facts">
+          <li><b>5</b> работ в портфолио</li>
+          <li><b>3</b> сайта в публикации</li>
+          <li><b>2024</b> год начала работы</li>
         </ul>
       </div>
-
-      <div class="hero__foot">
-        <p class="hero__roles">Оформление · тексты · соцсети · мероприятия · сайты</p>
-        <a class="link" href="works.html">Смотреть работы <span aria-hidden="true">↓</span></a>
-        <a class="link" href="assets/docs/voronkov-resume.pdf" download>Скачать резюме <span aria-hidden="true">↓</span></a>
-      </div>
     </div>
   </section>
 
-  <!-- ================= КОРОТКО О СЕБЕ ================= -->
-  <section class="section section--alt" id="about">
+  <!-- ================= О СЕБЕ ================= -->
+  <section class="section">
     <div class="wrap">
-      <header class="section-head reveal">
-        <div class="section-head__text">
-          <p class="eyebrow">О себе</p>
-          <h2 class="h2">Собираю проекты целиком</h2>
+      <div class="reveal">
+        <div class="sec-head">
+          <h2>Собираю проекты целиком</h2>
+          <p class="sec-head__note">Оформление, тексты, соцсети, мероприятия и сайты —
+            от идеи до публикации.</p>
         </div>
-        <div class="section-head__aside">
-          <p class="micro">Оформление · тексты · соцсети · сайты</p>
-        </div>
-      </header>
-
-      <div class="intro reveal">
-        <p class="lead">Придумываю внешний вид, пишу тексты, собираю макеты и довожу работу
-          до публикации — без подрядчиков и лишних согласований.</p>
-        <div>
-          <p class="prose">Основное направление — фирменный стиль и личный бренд в общественных
-            и политических проектах, печатная продукция, оформление мероприятий
-            и политический консалтинг: от камерных встреч до массовых городских событий.</p>
-          <p class="muted-link"><a class="link" href="about.html">Подробнее обо мне <span aria-hidden="true">→</span></a></p>
-        </div>
+        <p class="statement">Придумываю внешний вид, пишу тексты, собираю макеты и довожу работу
+          до публикации — <mark>без подрядчиков</mark> и лишних согласований. Основное
+          направление — <mark>фирменный стиль</mark> и личный бренд в
+          <mark>общественных и политических проектах</mark>: печатная продукция,
+          <mark>оформление мероприятий</mark> и <mark>политический консалтинг</mark>.
+          Технические задачи закрываю с помощью нейросетей: сам формулирую задачу, проверяю
+          результат и выкладываю готовый сайт.
+          <a href="about.html"><mark class="mark--strong">Подробнее обо мне</mark></a></p>
       </div>
     </div>
   </section>
 
-  <!-- ================= ИЗБРАННОЕ ================= -->
-  <section class="section" id="featured">
+  <!-- ================= РАБОТЫ ================= -->
+  <section class="section section--surface">
     <div class="wrap">
-      <header class="works-head reveal">
-        <div>
-          <p class="eyebrow">Работы</p>
-          <h2 class="h2">Избранное</h2>
+      <div class="reveal">
+        <div class="sec-head">
+          <h2>Работы</h2>
+          <p class="sec-head__note">Пять проектов: фирменный стиль, программа форума
+            и три сайта в публикации.</p>
         </div>
-        <a class="link" href="works.html">Все пять работ <span aria-hidden="true">→</span></a>
-      </header>
 
-      <div class="cards reveal">
-        <a class="card" href="works.html#case-brand">
-          <div class="card__media">
-            <img src="assets/img/brand-board.jpg" width="2200" height="1284" loading="lazy"
-                 alt="Сводный лист фирменного стиля «Новое поколение»">
-          </div>
-          <p class="card__title">Фирменный стиль «Нового поколения»</p>
-          <p class="card__meta">Брендинг · знак, палитра, шрифты</p>
-        </a>
+        <ul class="names">
+          <li class="reveal"><a href="works.html#case-brand"><h3>Фирменный стиль «Нового поколения»</h3><span class="names__thumb"><img src="assets/img/brand-board.jpg" width="2200" height="1284" alt="" loading="lazy"></span></a></li>
+          <li class="reveal"><a href="works.html#case-print"><h3>Программа форума «Мама — сердце России»</h3><span class="names__thumb"><img src="assets/img/forum-light.jpg" width="1400" height="1980" alt="" loading="lazy"></span></a></li>
+          <li class="reveal"><a href="works.html#case-novo"><h3>Сайт «Нового поколения»</h3><span class="names__thumb"><img src="assets/img/site-novo-new.jpg" width="1600" height="1000" alt="" loading="lazy"></span></a></li>
+          <li class="reveal"><a href="works.html#case-law"><h3>Сайт Кирилла Чигирина</h3><span class="names__thumb"><img src="assets/img/case-law.jpg" width="1600" height="1000" alt="" loading="lazy"></span></a></li>
+          <li class="reveal"><a href="works.html#case-sarto"><h3>THE SARTORIALIST CLUB</h3><span class="names__thumb"><img src="assets/img/site-sartorialist.jpg" width="1600" height="1000" alt="" loading="lazy"></span></a></li>
+        </ul>
 
-        <a class="card" href="works.html#case-print">
-          <div class="card__media">
-            <img src="assets/img/forum-light.jpg" width="1400" height="1980" loading="lazy"
-                 alt="Программа форума «Мама — сердце России»">
-          </div>
-          <p class="card__title">Программа форума «Мама — сердце России»</p>
-          <p class="card__meta">Печать · вёрстка · A4</p>
-        </a>
-
-        <a class="card" href="works.html#case-sarto">
-          <div class="card__media">
-            <img src="assets/img/site-sartorialist.jpg" width="1600" height="1000" loading="lazy"
-                 alt="Главная страница сайта THE SARTORIALIST CLUB">
-          </div>
-          <p class="card__title">THE SARTORIALIST CLUB</p>
-          <p class="card__meta">Сайт · дизайн · публикация</p>
-        </a>
+        <p class="names__more"><a class="link" href="works.html">Все работы с описанием и ссылками</a></p>
       </div>
     </div>
   </section>
 
-  <!-- ================= КОНТАКТЫ ================= -->
-  <section class="section section--alt" id="contacts">
-    <div class="wrap cta reveal">
-      <div>
-        <p class="eyebrow">Контакты</p>
-        <h2 class="h2">Обсудим проект?</h2>
-        <p class="cta__sub">Оформление, тексты, мероприятия и сайты. Отвечаю в тот же день.</p>
-      </div>
-      <div class="cta__actions">
-        <a class="btn btn--solid" href="contacts.html">Написать</a>
-        <a class="btn" href="tel:+79112686601">+7 911 268-66-01</a>
-      </div>
-    </div>
-  </section>
+  <!-- ================= КАДР ================= -->
+  <figure class="band reveal">
+    <img src="assets/img/brand-board.jpg" width="2200" height="1284" loading="lazy"
+         alt="Сводный лист фирменного стиля «Новое поколение»: знак, палитра и шрифты">
+    <figcaption class="band__cap">Фирменный стиль «Нового поколения» · знак, палитра, шрифты</figcaption>
+  </figure>
 
 </main>
 
-<footer class="footer">
+<!-- ================= КОНТАКТЫ И ПОДВАЛ ================= -->
+<footer class="end">
   <div class="wrap">
-    <div class="footer__cols">
-      <div class="footer__col">
-        <h2>Контакты</h2>
+    <div class="end__word" aria-hidden="true">Воронков</div>
+    <div class="reveal">
+      <p class="end__lead">Оформление, тексты, мероприятия и сайты. Отвечаю в тот же день.</p>
+      <a class="end__mail" href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+      <div class="end__foot">
         <a href="tel:+79112686601">+7 911 268-66-01</a>
-        <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
+        <span>Санкт-Петербург</span>
+        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub ↗</a>
+        <div class="end__docs">
+          <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
+          <a href="assets/docs/voronkov-resume.docx" download>DOCX</a>
+          <span>© <span id="year">2026</span> Денис Воронков</span>
+        </div>
       </div>
-      <div class="footer__col">
-        <h2>Разделы</h2>
-        <a href="works.html">Работы</a>
-        <a href="about.html">О себе</a>
-        <a href="contacts.html">Контакты</a>
-      </div>
-      <div class="footer__col">
-        <h2>Документы</h2>
-        <a href="assets/docs/voronkov-resume.pdf" download>Резюме PDF</a>
-        <a href="assets/docs/voronkov-resume.docx" download>Резюме DOCX</a>
-        <a href="https://github.com/askuyr" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Денис Воронков</span>
-      <span>Санкт-Петербург · портфолио и резюме</span>
-      <a href="#top">Наверх ↑</a>
     </div>
   </div>
 </footer>
 
-<a class="to-top" id="toTop" href="#top" aria-label="Наверх">↑</a>
-
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/fx.js" defer></script>
 </body>
 </html>
