@@ -523,6 +523,8 @@ h3 {
 .foot__rows {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  align-items: center;
   gap: 0.75rem 2rem;
   align-items: center;
   justify-content: space-between;
@@ -824,10 +826,8 @@ h2 + p, h2 + div, h2 + ul, h2 + ol { margin-top: 0; }
 
 .vd-stamp {
   display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-  margin-top: 2.25rem;
-  padding-bottom: 2px;
+  align-items: center;
+  gap: 0.8rem;
   color: var(--on-dark-soft);
 }
 .vd-stamp__mark {
