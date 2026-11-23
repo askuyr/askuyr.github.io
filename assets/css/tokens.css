@@ -1,24 +1,45 @@
-/* Дизайн-система: цвет, шрифт, размеры, отступы. Меняется только здесь. */
+/* Дизайн-система сайта. Значения меняются только здесь. */
 
 :root {
-  --paper: #f7f9f8;
-  --surface: #ebf0ee;
-  --ink: #06525c;
-  --muted: #175a64;
-  --field: #06525c;
-  --field-ink: #f7f9f8;
+  color-scheme: dark;
 
+  /* Поверхности */
+  --void: #0b0c0c;
+  --void-2: #141616;
+  --bone: #edeae3;
+  --bone-2: #dcd6cb;
+  --ink: #0b0c0c;
+
+  /* Текст */
+  --on-dark: #edeae3;
+  --on-dark-soft: #b8b6ad;
+  --ash: #8b8e88;
+  --on-bone-soft: #4b4d49;
+
+  /* Линии и акцент */
+  --line: rgb(237 234 227 / 0.16);
+  --line-strong: rgb(237 234 227 / 0.34);
+  --line-dark: rgb(11 12 12 / 0.16);
+  --accent: #8fd6cd;
+
+  /* Шрифты */
   --font-display: "Oswald", "Arial Narrow", "Helvetica Neue", sans-serif;
-  --font-text: "Lora", Georgia, "Times New Roman", serif;
+  --font-text: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Пять размеров на весь сайт */
-  --s-small: 1rem;
-  --s-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
-  --s-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
-  --s-head: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
-  --s-mega: clamp(4.5rem, 20.5vw, 21rem);
+  /* Кегли */
+  --s-xs: 0.8125rem;
+  --s-s: 0.9375rem;
+  --s-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --s-lead: clamp(1.1875rem, 1rem + 0.75vw, 1.625rem);
+  --s-h3: clamp(1.375rem, 1.15rem + 1.1vw, 2rem);
+  --s-h2: clamp(2.125rem, 1.3rem + 3.4vw, 4.25rem);
+  --s-h1: clamp(2.75rem, 1.2rem + 7vw, 7rem);
+  --s-mega: clamp(3rem, 14vw, 11rem);
 
-  --pad: clamp(1.25rem, 4vw, 3.5rem);
-  --gap: clamp(6rem, 11vw, 13rem);
+  /* Ритм */
+  --pad: clamp(1.25rem, 5vw, 5rem);
+  --gap: clamp(3.5rem, 8vw, 7.5rem);
   --radius: 0;
+  --bar-h: 64px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }

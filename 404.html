@@ -7,7 +7,7 @@
 
 <meta name="description" content="Такой страницы нет. Вернитесь на главную или посмотрите работы.">
 <meta name="author" content="Денис Воронков">
-<meta name="theme-color" content="#f7f9f8">
+<meta name="theme-color" content="#0b0c0c">
 <meta name="robots" content="noindex">
 
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -18,42 +18,48 @@
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body id="top">
+<body>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
-<header class="head">
-  <div class="wrap head__inner">
-    <a class="head__brand" href="index.html">Денис Воронков</a>
-    <nav class="head__nav" aria-label="Разделы сайта">
+<header class="bar">
+  <div class="wrap bar__inner">
+    <a class="bar__brand" href="index.html">Воронков</a>
+    <nav class="bar__nav" id="nav" aria-label="Разделы сайта">
       <a href="works.html">Работы</a>
       <a href="about.html">О себе</a>
       <a href="contacts.html">Контакты</a>
     </nav>
+    <a class="bar__cta" href="assets/docs/voronkov-resume.pdf" download>Резюме ↓</a>
+    <button class="bar__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero hero--error">
-    <div class="wrap hero__inner reveal">
-      <h1 class="hero__word">404</h1>
-      <p class="hero__lead">Такой страницы нет. Возможно, адрес изменился или в ссылке
-        опечатка.</p>
-      <div class="hero__actions">
+  <section class="page-head">
+    <div class="wrap reveal">
+      <p class="label">Ошибка 404</p>
+      <h1 class="mega">404</h1>
+      <p class="lead">Такой страницы нет. Возможно, адрес изменился или в ссылке опечатка.</p>
+      <div class="hero__actions" style="margin-top:2rem">
         <a class="btn" href="index.html">На главную</a>
-        <a class="link" href="works.html">Смотреть работы</a>
+        <a class="btn btn--ghost" href="works.html">Смотреть работы</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="end end--error">
+<footer class="foot">
   <div class="wrap">
-    <div class="end__foot">
-      <a href="tel:+79112686601">+7 911 268-66-01</a>
-      <a href="mailto:denisvoronkov486@gmail.com">denisvoronkov486@gmail.com</a>
-      <div class="end__docs">
-        <span>© <span id="year">2026</span> Денис Воронков</span>
+    <p class="foot__name" aria-hidden="true">Воронков</p>
+    <div class="foot__rows">
+      <span>© <span id="year">2026</span> Денис Воронков</span>
+      <div class="foot__docs">
+        <a href="tel:+79112686601">Телефон</a>
+        <a href="mailto:denisvoronkov486@gmail.com">Почта</a>
       </div>
     </div>
   </div>

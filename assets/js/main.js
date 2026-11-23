@@ -13,16 +13,15 @@
   var nav = doc.getElementById("nav");
 
   if (toggle && nav) {
-    function setMenu(open) {
+    var setMenu = function (open) {
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.textContent = open ? "Закрыть" : "Меню";
       doc.body.style.overflow = open ? "hidden" : "";
       if (open) {
         var first = nav.querySelector("a");
         if (first) first.focus();
       }
-    }
+    };
 
     toggle.addEventListener("click", function () {
       setMenu(toggle.getAttribute("aria-expanded") !== "true");
@@ -47,48 +46,23 @@
   /* ---------- появление блоков ---------- */
   var reveals = Array.prototype.slice.call(doc.querySelectorAll(".reveal"));
 
-  function showAll() {
-    reveals.forEach(function (block) { block.classList.add("is-in"); });
-  }
-
   if ("IntersectionObserver" in window && reveals.length) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        var kids = entry.target.children;
-        for (var i = 0; i < kids.length; i++) {
-          kids[i].style.transitionDelay = (i * 70) + "ms";
-        }
         entry.target.classList.add("is-in");
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
 
     reveals.forEach(function (block) { observer.observe(block); });
+
+    /* страховка: если наблюдатель не сработал, текст всё равно показывается */
+    window.setTimeout(function () {
+      reveals.forEach(function (block) { block.classList.add("is-in"); });
+    }, 1600);
   } else {
-    showAll();
-  }
-
-  /* ---------- имя на обложке уходит вглубь при скролле ---------- */
-  var word = doc.querySelector("[data-hero-word]");
-  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (word && !still) {
-    var ticking = false;
-
-    var update = function () {
-      ticking = false;
-      var progress = Math.min((window.scrollY || 0) / (window.innerHeight * 1.2 || 1), 1);
-      word.style.transform = "scale(" + (1 - progress * 0.07).toFixed(4) + ")";
-    };
-
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    }, { passive: true });
-
-    update();
+    reveals.forEach(function (block) { block.classList.add("is-in"); });
   }
 
   /* ---------- просмотр работ ---------- */
@@ -157,7 +131,7 @@
 
   if (copy) {
     var reset = function () {
-      copy.textContent = "Скопировать почту";
+      copy.textContent = copy.getAttribute("data-label") || "Скопировать почту";
     };
 
     var done = function () {

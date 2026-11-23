@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дизайн-система — Денис Воронков</title>
+
+<meta name="description" content="Токены, типографика, компоненты и иконки сайта askuyr.github.io.">
+<meta name="author" content="Денис Воронков">
+<meta name="theme-color" content="#0b0c0c">
+<link rel="canonical" href="https://askuyr.github.io/kit.html">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="bar">
+  <div class="wrap bar__inner">
+    <a class="bar__brand" href="index.html">Воронков</a>
+    <nav class="bar__nav" id="nav" aria-label="Разделы сайта">
+      <a href="works.html">Работы</a>
+      <a href="about.html">О себе</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <a class="bar__cta" href="index.html">На главную</a>
+    <button class="bar__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <header class="page-head">
+    <div class="wrap reveal">
+      <p class="label">Дизайн-система</p>
+      <h1>Токены и компоненты</h1>
+      <p class="lead">Одна страница с тем, из чего собран сайт: цвета, шрифты, сетка, кнопки, состояния.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="sec-head"><h2>Цвета</h2><p>Один фон, один текст, один акцент. Глубина — сменой тона, без теней.</p></div>
+      <ul class="brand-palette">
+        <li class="brand-swatch"><span class="brand-swatch__chip" style="background:#0b0c0c"></span><span class="brand-swatch__name">Void</span><span class="brand-swatch__hex">#0B0C0C · фон</span></li>
+        <li class="brand-swatch"><span class="brand-swatch__chip" style="background:#141616"></span><span class="brand-swatch__name">Void 2</span><span class="brand-swatch__hex">#141616 · панели</span></li>
+        <li class="brand-swatch"><span class="brand-swatch__chip" style="background:#edeae3"></span><span class="brand-swatch__name">Bone</span><span class="brand-swatch__hex">#EDEAE3 · светлая полоса</span></li>
+        <li class="brand-swatch"><span class="brand-swatch__chip" style="background:#8b8e88"></span><span class="brand-swatch__name">Ash</span><span class="brand-swatch__hex">#8B8E88 · подписи</span></li>
+        <li class="brand-swatch"><span class="brand-swatch__chip" style="background:#8fd6cd"></span><span class="brand-swatch__name">Accent</span><span class="brand-swatch__hex">#8FD6CD · фокус, ссылки</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="sec-head"><h2>Типографика</h2><p>Две гарнитуры: Oswald для заголовков, Jost для текста. Обе локальные, с кириллицей.</p></div>
+      <div class="jobs">
+        <div class="job"><p class="job__when">Mega</p><div><p class="mega" style="font-size:clamp(2.5rem,9vw,6rem)">Воронков</p></div></div>
+        <div class="job"><p class="job__when">H1</p><div><h1 style="font-size:var(--s-h1)">Заголовок</h1></div></div>
+        <div class="job"><p class="job__when">H2</p><div><h2 style="font-size:var(--s-h2)">Раздел</h2></div></div>
+        <div class="job"><p class="job__when">H3</p><div><h3>Подзаголовок</h3></div></div>
+        <div class="job"><p class="job__when">Lead</p><div><p class="lead">Крупный вводный абзац.</p></div></div>
+        <div class="job"><p class="job__when">Body</p><div><p>Основной текст. Размер 16–18 px, интерлиньяж 1.55.</p></div></div>
+        <div class="job"><p class="job__when">Label</p><div><p class="label">Служебная подпись</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="sec-head"><h2>Компоненты</h2><p>Кнопки, ссылки, состояния.</p></div>
+      <div class="hero__actions" style="margin-bottom:1.75rem">
+        <button class="btn" type="button">Основная</button>
+        <button class="btn btn--ghost" type="button">Второстепенная</button>
+        <a class="link" href="works.html">Текстовая ссылка →</a>
+      </div>
+      <div class="skills">
+        <div class="skill"><h3>Карточка</h3><p>Фон панели, заголовок Oswald, текст Jost.</p></div>
+        <div class="skill"><h3>Поле</h3><p>Без полей ввода: связь — почта, телефон и GitHub.</p></div>
+      </div>
+      <p class="muted" style="margin-top:1.5rem;max-width:60ch">Фокус: клавиатурный обвод 2 px цветом accent. Наведение: инверсия заливки у кнопок, подчёркивание у ссылок. Радиус 0 — скруглений нет.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="sec-head"><h2>Иконки</h2><p>Линейные, 1,6–1,8 px, рисуются кодом, цвет наследуется.</p></div>
+      <div class="skills">
+        <div class="skill"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><p style="margin-top:.6rem">Меню</p></div>
+        <div class="skill"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 4v12m0 0-4-4m4 4 4-4M5 20h14"/></svg><p style="margin-top:.6rem">Скачать</p></div>
+        <div class="skill"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 19 7-14 7 14M8 14h8"/></svg><p style="margin-top:.6rem">Следующая</p></div>
+        <div class="skill"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg><p style="margin-top:.6rem">Почта</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="sec-head"><h2>Сетка</h2><p>Контейнер до 1560 px, поля 20–80 px, вертикальный ритм 56–120 px.</p></div>
+      <div class="jobs">
+        <div class="job"><p class="job__when">Контейнер</p><div><p>1560 px максимум, боковые поля clamp(20px, 5vw, 80px)</p></div></div>
+        <div class="job"><p class="job__when">Ритм</p><div><p>Секции 3,5–7,5 rem, внутри 1–2 rem</p></div></div>
+        <div class="job"><p class="job__when">Колонки</p><div><p>Главная 1 : 0,72; работы 0,92 : 1,08; о себе 0,62 : 1</p></div></div>
+        <div class="job"><p class="job__when">Брейкпоинты</p><div><p>960 px и 820 px</p></div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name" aria-hidden="true">Воронков</p>
+    <div class="foot__rows">
+      <span>© <span id="year">2026</span> Денис Воронков</span>
+      <div class="foot__docs">
+        <a href="index.html">Главная</a>
+        <a href="works.html">Работы</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
