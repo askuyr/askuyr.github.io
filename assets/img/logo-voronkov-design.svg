@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" role="img" aria-label="Воронков Дизайн">
+  <title>Воронков Дизайн</title>
+  <!-- Знак -->
+  <path fill="currentColor" fill-rule="evenodd" d="M0 0h56v56H0Zm12.2 14h9.8L28 37.4 34 14h9.8L34.4 42H21.6Z"/>
+  <!-- Подпись. Для точного совпадения подключите Oswald (SIL OFL), иначе сработает запасной шрифт -->
+  <g font-family="Oswald, 'Arial Narrow', Arial, sans-serif" fill="currentColor">
+    <text x="70" y="26" font-size="20" font-weight="500" letter-spacing="3.2">VORONKOV</text>
+    <text x="70" y="44" font-size="10" font-weight="400" letter-spacing="6.4">DESIGN</text>
+  </g>
+</svg>

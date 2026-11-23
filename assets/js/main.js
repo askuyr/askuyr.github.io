@@ -46,11 +46,23 @@
   /* ---------- появление блоков ---------- */
   var reveals = Array.prototype.slice.call(doc.querySelectorAll(".reveal"));
 
+  var stagger = function (block) {
+    var kids = block.children;
+    for (var i = 0; i < kids.length; i++) {
+      kids[i].style.setProperty("--i", Math.min(i, 6));
+    }
+  };
+
+  var reveal = function (block) {
+    stagger(block);
+    block.classList.add("is-in");
+  };
+
   if ("IntersectionObserver" in window && reveals.length) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-in");
+        reveal(entry.target);
         observer.unobserve(entry.target);
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
@@ -59,10 +71,10 @@
 
     /* страховка: если наблюдатель не сработал, текст всё равно показывается */
     window.setTimeout(function () {
-      reveals.forEach(function (block) { block.classList.add("is-in"); });
+      reveals.forEach(reveal);
     }, 1600);
   } else {
-    reveals.forEach(function (block) { block.classList.add("is-in"); });
+    reveals.forEach(reveal);
   }
 
   /* ---------- просмотр работ ---------- */

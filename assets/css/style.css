@@ -292,7 +292,7 @@ h3 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--on-dark);
-  background: linear-gradient(to top, rgb(11 12 12 / 0.85), transparent);
+  background: linear-gradient(to top, rgb(11 12 12 / 0.94) 0%, rgb(11 12 12 / 0.72) 55%, transparent 100%);
 }
 
 /* ===== Полоса фактов ===== */
@@ -591,8 +591,7 @@ h3 {
 
 /* ===== Появление ===== */
 
-.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.js .reveal.is-in { opacity: 1; transform: none; }
+.js .reveal { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -709,3 +708,114 @@ h3 {
 @media (min-width: 900px) {
   .brand-logo:last-child { grid-column: span 2; }
 }
+
+/* ===== Логотип ===== */
+
+.bar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  margin-right: auto;
+}
+.brand__mark { width: 26px; height: 26px; flex: none; }
+.brand__text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.brand__name { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; }
+.brand__sub {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--on-dark-soft);
+}
+
+/* ===== Длина строк и ритм текста ===== */
+
+.about__text p,
+.skill p,
+.job p,
+.qualities,
+.profile { max-width: 66ch; }
+.sec-head p { max-width: 44ch; }
+.job p:last-child { max-width: 64ch; }
+h2 + p, h2 + div, h2 + ul, h2 + ol { margin-top: 0; }
+
+/* ===== Подчёркивание в меню ===== */
+
+.bar__nav a { position: relative; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center; }
+.bar__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease);
+}
+.bar__nav a:hover::after,
+.bar__nav a:focus-visible::after,
+.bar__nav a[aria-current="page"]::after { transform: scaleX(1); }
+.bar__nav a[aria-current="page"]::after { background: var(--accent); }
+
+/* ===== Появление: шаг за шагом ===== */
+
+.js .reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.js .reveal.is-in > * { opacity: 1; transform: none; }
+
+/* первый экран */
+.hero__text > * { animation: rise 0.9s var(--ease) both; }
+.hero__text > *:nth-child(2) { animation-delay: 0.06s; }
+.hero__text > *:nth-child(3) { animation-delay: 0.12s; }
+.hero__text > *:nth-child(4) { animation-delay: 0.18s; }
+.hero__media { animation: rise 0.9s var(--ease) 0.1s both; }
+.hero__media img { animation: settle 1.4s var(--ease) both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes settle {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: none; }
+}
+
+/* подвал */
+.foot__name { animation: rise 0.8s var(--ease) both; }
+
+/* отклик на нажатие */
+.btn:active, .bar__cta:active { transform: translateY(1px); }
+.btn, .bar__cta, .link, .bar__nav a { transition-duration: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal > * { opacity: 1; transform: none; transition: none; }
+  .hero__text > *, .hero__media, .hero__media img, .foot__name { animation: none; }
+  .bar__nav a::after { transition: none; }
+}
+
+/* ===== Отступы заголовка страницы ===== */
+
+.page-head { padding-bottom: clamp(1.1rem, 1.8vw, 1.6rem); }
+.page-head + .section { padding-top: clamp(1rem, 1.6vw, 1.4rem); }
+.page-head + .section .works { border-top: 0; }
+
+/* логотип в ките */
+.logo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.logo-tile { display: flex; align-items: center; justify-content: center; min-height: 9rem; padding: 1.5rem; }
+.logo-tile img, .logo-tile svg { width: 100%; max-width: 13rem; height: auto; }
+.logo-tile svg.mark { max-width: 5.5rem; }
+
+.logo-tile svg.mark { max-width: 5.5rem; }

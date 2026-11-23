@@ -74,6 +74,7 @@ assets/css/style.css       раскладка и компоненты
 assets/js/main.js          меню, появление блоков, просмотр, копирование почты
 assets/fonts/*.woff2       Oswald и Jost
 assets/img/*               портрет, снимки работ, OG-картинка, иконки
+assets/img/logo-*.svg      логотип «Воронков Дизайн»: знак и знак с подписью
 assets/img/brand/*         знак «Нового поколения» в вариантах
 assets/docs/*.pdf|docx     резюме
 ```
