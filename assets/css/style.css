@@ -861,4 +861,4 @@ h2 + p, h2 + div, h2 + ul, h2 + ol { margin-top: 0; }
 .vd-stamp:hover .vd-stamp__box { border-color: var(--on-dark); color: var(--on-dark); }
 .vd-stamp:hover .vd-stamp__box i { color: var(--on-dark-soft); }
 
-.vd-stamp__logo { width: 18px; height: 18px; flex: none; }
+.vd-stamp__logo { width: 13px; height: 13px; flex: none; }
