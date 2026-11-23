@@ -860,3 +860,5 @@ h2 + p, h2 + div, h2 + ul, h2 + ol { margin-top: 0; }
 .vd-stamp__note a { text-decoration: underline; text-underline-offset: 2px; }
 .vd-stamp:hover .vd-stamp__box { border-color: var(--on-dark); color: var(--on-dark); }
 .vd-stamp:hover .vd-stamp__box i { color: var(--on-dark-soft); }
+
+.vd-stamp__logo { width: 18px; height: 18px; flex: none; }

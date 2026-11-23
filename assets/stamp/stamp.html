@@ -1,21 +1,22 @@
-<!-- Блок «Задизайнено в студии Воронкова». Вставляется перед </body>.
-     Самодостаточный: не зависит от стилей сайта, читается на светлом и тёмном фоне.
+<!-- Блок «Задизайнено в студии Воронкова». Вставляется в нижнюю строку подвала,
+     рядом с копирайтом или контактами, а не отдельным блоком под ним.
+     Самодостаточный: цвета и шрифт наследуются от подвала.
      Домен: замените voronkov-design.ru, когда он заработает. -->
 <div class="vd-stamp">
   <a class="vd-stamp__mark" href="https://voronkov-design.ru/" target="_blank" rel="noopener">
+    <svg class="vd-stamp__logo" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M0 0h32v32H0Zm7 8h5.6L16 21.4 19.4 8H25l-5.4 16h-7.2Z"/></svg>
     <span class="vd-stamp__box">VORONKOV<i>.DESIGN</i></span>
     <span class="vd-stamp__year">2026</span>
   </a>
-  <p class="vd-stamp__note">Задизайнено<br>в студии <a href="https://voronkov-design.ru/" target="_blank" rel="noopener">Воронкова</a></p>
+  <span class="vd-stamp__note">Задизайнено в студии <a href="https://voronkov-design.ru/" target="_blank" rel="noopener">Воронкова</a></span>
 </div>
 <style>
-.vd-stamp{display:flex;align-items:flex-start;gap:14px;margin:28px 0 10px;color:#6b7280;font:400 13px/1.45 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-align:left}
-.vd-stamp__mark{display:flex;flex-direction:column;gap:5px;color:inherit;text-decoration:none}
-.vd-stamp__box{display:block;padding:7px 11px;border:1px solid rgba(107,114,128,.55);font:500 15px/1 Oswald,"Arial Narrow",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:border-color .2s ease,color .2s ease}
-.vd-stamp__box i{font-style:normal;opacity:.65;margin-left:.3em;letter-spacing:.16em}
-.vd-stamp__year{font:400 11px/1.6 Oswald,"Arial Narrow",Arial,sans-serif;letter-spacing:.18em}
-.vd-stamp__note{margin:0;max-width:22ch}
+.vd-stamp{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0;color:inherit;font:inherit}
+.vd-stamp__mark{display:flex;align-items:center;gap:8px;color:inherit;text-decoration:none}
+.vd-stamp__logo{width:18px;height:18px;flex:none}
+.vd-stamp__box{border:1px solid currentColor;padding:3px 6px;font-size:10px;line-height:1;letter-spacing:.12em;text-transform:uppercase;opacity:.85;white-space:nowrap}
+.vd-stamp__box i{font-style:normal;opacity:.6;margin-left:.25em}
+.vd-stamp__year{font-size:10px;letter-spacing:.1em;opacity:.65}
+.vd-stamp__note{opacity:.8}
 .vd-stamp__note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-.vd-stamp:hover .vd-stamp__box{border-color:currentColor;color:#4b5563}
-@media (max-width:420px){.vd-stamp{gap:10px;margin:22px 0 6px}.vd-stamp__box{font-size:13px;padding:6px 9px}}
 </style>
