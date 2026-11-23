@@ -84,6 +84,7 @@ h1 {
   line-height: 0.9;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 h2 {
@@ -91,6 +92,7 @@ h2 {
   line-height: 0.94;
   letter-spacing: -0.015em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 h3 {
@@ -113,6 +115,7 @@ h3 {
   line-height: 1.35;
   color: var(--on-dark-soft);
   max-width: 34ch;
+  text-wrap: pretty;
 }
 
 .muted { color: var(--on-dark-soft); }
@@ -365,11 +368,17 @@ h3 {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.6s var(--ease), filter 0.4s var(--ease);
-  filter: grayscale(0.2);
+  transition: transform 0.6s var(--ease);
 }
-.work__media:hover img { transform: scale(1.03); filter: grayscale(0); }
-.work__media img.is-poster { object-fit: contain; background: #efece4; }
+.work__media:hover img { transform: scale(1.03); }
+/* Печатный макет: кадр 4:5 с паспарту, постер виден целиком */
+.work__media img.is-poster {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: #efece4;
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+}
+.work__media:hover img.is-poster { transform: none; }
 
 .work__meta {
   display: flex;
@@ -605,9 +614,10 @@ h3 {
 
 @media (max-width: 960px) {
   .hero__inner { grid-template-columns: 1fr; min-height: 0; }
-  .hero__media { order: -1; max-height: 62svh; }
-  .hero__media img { height: 62svh; }
-  .hero__text { padding: 2rem 0 2.5rem; }
+  /* Имя сначала, портрет после: на телефоне первый экран показывает кто это */
+  .hero__media { order: 0; max-height: none; }
+  .hero__media img { height: auto; aspect-ratio: 4 / 5; max-height: 58svh; object-position: 50% 24%; }
+  .hero__text { padding: 1.75rem 0 0.5rem; }
   .about { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr; }
   .work--flip .work__media { order: 0; }
