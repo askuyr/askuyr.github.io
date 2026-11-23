@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Воронков Денис — контент-менеджер</title>
+<style>
+@font-face{font-family:Oswald;src:url("../fonts/oswald-600-cyrillic.woff2");font-weight:300 700}
+@font-face{font-family:Oswald;src:url("../fonts/oswald-600-latin.woff2");font-weight:300 700}
+@font-face{font-family:Jost;src:url("../fonts/jost-normal-300-600-cyrillic.woff2");font-weight:300 600}
+@font-face{font-family:Jost;src:url("../fonts/jost-normal-300-600-latin.woff2");font-weight:300 600}
+
+:root{
+  --bone:#f4f1ea;
+  --ink:#0b0c0c;
+  --soft:#5a5c56;
+  --line:#c9c4b8;
+  --accent:#0f6b73;
+}
+
+*{box-sizing:border-box}
+@page{size:A4;margin:0}
+html,body{margin:0;width:210mm;height:297mm}
+body{
+  background:var(--bone);color:var(--ink);
+  font-family:Jost,"Helvetica Neue",Arial,sans-serif;
+  font-size:9.1pt;line-height:1.34;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.page{height:297mm;padding:13mm 14mm 10mm;position:relative;display:flex;flex-direction:column}
+
+/* шапка */
+.head{display:flex;justify-content:space-between;gap:10mm;align-items:flex-start;border-bottom:1px solid var(--ink);padding-bottom:5mm}
+.name{margin:0;font:600 40pt/.86 Oswald,"Arial Narrow",sans-serif;letter-spacing:-.03em;text-transform:uppercase}
+.name span{display:block;font-size:15pt;font-weight:400;letter-spacing:.06em;margin-top:2.5mm;text-transform:uppercase;color:var(--soft)}
+.role{margin-top:4mm;display:inline-block;padding:1.4mm 3mm;background:var(--ink);color:var(--bone);font:500 9.5pt Oswald,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.head__photo{width:26mm;height:32.5mm;object-fit:cover;filter:grayscale(1);flex:none;border:1px solid var(--ink)}
+
+/* сетка */
+.cols{display:grid;grid-template-columns:1fr 58mm;gap:8mm;margin-top:5mm;flex:1}
+h2{font:500 13pt/1 Oswald,"Arial Narrow",sans-serif;letter-spacing:.02em;text-transform:uppercase;margin:0 0 2.2mm;padding-bottom:1.4mm;border-bottom:1px solid var(--ink)}
+section{margin-bottom:4.6mm}
+h3{font:500 9.6pt/1.15 Oswald,"Arial Narrow",sans-serif;margin:0 0 .6mm;letter-spacing:.01em}
+p{margin:0}
+.muted{color:var(--soft)}
+
+/* профиль */
+.profile{font-size:9.4pt}
+
+/* опыт */
+.job{margin-bottom:3.4mm}
+.job:last-child{margin-bottom:0}
+.job__top{display:flex;justify-content:space-between;gap:3mm;align-items:baseline}
+.job__date{font:400 7.6pt Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+.job__org{font:400 8.4pt Oswald,sans-serif;letter-spacing:.02em;color:var(--soft);margin:.4mm 0 .9mm}
+
+/* работы */
+.works{display:grid;gap:2.2mm}
+.work{display:grid;grid-template-columns:23mm 1fr;gap:3mm;align-items:start}
+.work img{width:23mm;height:14.5mm;object-fit:cover;object-position:top center;border:1px solid var(--line)}
+.work h3{font-size:9.2pt;margin-bottom:.4mm}
+.work p{font-size:8.3pt;color:var(--soft);line-height:1.3}
+
+/* правые колонки */
+.side h2{font-size:11.5pt}
+.facts{display:grid;gap:1.4mm;margin:0;padding:0;list-style:none}
+.facts li{display:flex;justify-content:space-between;gap:2mm;border-bottom:1px solid var(--line);padding-bottom:1mm;font-size:8.6pt}
+.facts li span{font:400 7.5pt Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.facts b{font:500 8.8pt Jost,sans-serif;letter-spacing:0;text-align:right}
+.skills{display:grid;gap:.9mm;font-size:8.6pt;list-style:none;margin:0;padding:0}
+.skills li{padding-left:3mm;position:relative}
+.skills li:before{content:"";position:absolute;left:0;top:1.55mm;width:1.4mm;height:1.4mm;background:var(--ink)}
+.tools{font-size:8.5pt;line-height:1.5;color:var(--soft)}
+.tool{display:flex;align-items:center;gap:2mm;padding-bottom:1mm;border-bottom:1px solid var(--line);color:var(--ink);font-size:8.6pt}
+.tool svg{width:3.4mm;height:3.4mm;flex:none}
+
+/* подвал */
+.foot{margin-top:auto;display:flex;justify-content:space-between;gap:4mm;border-top:1px solid var(--ink);padding-top:2.2mm;font:400 7.4pt Oswald,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+@media screen{body{margin:12px auto;box-shadow:0 6px 32px #0003}}
+@media print{html,body{width:210mm;height:297mm}}
+</style>
+</head>
+<body><main class="page">
+
+<header class="head">
+  <div>
+    <p class="name">Воронков<span>Денис Александрович</span></p>
+    <div class="role">Контент-менеджер</div>
+  </div>
+  <img class="head__photo" src="../img/resume-photo.jpg" alt="Денис Воронков">
+</header>
+
+<div class="cols">
+  <div>
+    <section>
+      <h2>Профиль</h2>
+      <p class="profile">Специалист по контенту и визуальному оформлению. Готовлю тексты, карточки, макеты и материалы для публикации в соцсетях, на сайтах и в печати. Быстро разбираюсь в задаче, самостоятельно собираю результат и проверяю его перед выпуском.</p>
+    </section>
+
+    <section>
+      <h2>Опыт</h2>
+      <article class="job">
+        <div class="job__top"><h3>Контент и оформление · проектная работа</h3><span class="job__date">2024 — н. в.</span></div>
+        <p class="job__org">Общественный проект · Санкт-Петербург</p>
+        <p>Готовлю карточки и тексты для соцсетей, печатную продукцию и материалы для мероприятий. Участвую в подготовке информационных материалов и сопровождении общественных проектов.</p>
+      </article>
+      <article class="job">
+        <div class="job__top"><h3>Проектная работа</h3><span class="job__date">по задачам</span></div>
+        <p class="job__org">С. Н. Нескоромных</p>
+        <p>Выполняю организационные и информационные задачи в местных проектах.</p>
+      </article>
+      <article class="job">
+        <div class="job__top"><h3>Помощник системного администратора</h3><span class="job__date">настоящее время</span></div>
+        <p class="job__org">ООО «Юнивес»</p>
+        <p>Помогаю сотрудникам с рабочими местами и офисной техникой, поддерживаю повседневную работу оборудования.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Работы</h2>
+      <div class="works">
+        <article class="work">
+          <img src="../img/forum-light.jpg" alt="Программа форума">
+          <div><h3>Программа городского форума</h3><p>Расписание по времени и параллельным залам, две версии макета A4.</p></div>
+        </article>
+        <article class="work">
+          <img src="../img/work-novo.jpg" alt="Сайт общественного проекта">
+          <div><h3>Сайт общественного проекта</h3><p>Структура, тексты, вёрстка и публикация сайта из 8 страниц.</p></div>
+        </article>
+        <article class="work">
+          <img src="../img/brand-board.jpg" alt="Фирменный стиль">
+          <div><h3>Фирменный стиль проекта</h3><p>Знак в пяти вариантах, палитра, шрифты и руководство по стилю.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Образование</h2>
+      <h3>Петровский колледж</h3>
+      <p class="muted">Юриспруденция, 3 курс · обучаюсь</p>
+    </section>
+  </div>
+
+  <aside class="side">
+    <section>
+      <h2>Контакты</h2>
+      <ul class="facts">
+        <li><span>Телефон</span><b>+7 911 268-66-01</b></li>
+        <li><span>Почта</span><b>denisvoronkov486@gmail.com</b></li>
+        <li><span>Сайт</span><b>askuyr.github.io</b></li>
+        <li><span>Город</span><b>Санкт-Петербург</b></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Навыки</h2>
+      <ul class="skills">
+        <li>Контент для соцсетей</li>
+        <li>Тексты и редактура</li>
+        <li>Макеты и фирменный стиль</li>
+        <li>Печатная продукция</li>
+        <li>Съёмка и монтаж видео</li>
+        <li>Сайты и публикация</li>
+        <li>Организация мероприятий</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Инструменты</h2>
+      <ul class="tools" style="margin:0;padding:0;list-style:none">
+        <li class="tool"><svg viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M5 1h3v6H5a3 3 0 1 1 0-6Zm3 0h3a3 3 0 1 1 0 6H8V1ZM5 7h3v6H5a3 3 0 1 1 0-6Zm3 0h3a3 3 0 1 1 0 6H8V7Zm0 6h3a3 3 0 1 1-3 3v-3Z"/></svg>Figma</li>
+        <li class="tool"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 4 14 12M17 4 3 16M4 2l12 16"/></svg>CapCut</li>
+        <li class="tool"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="5" cy="4" r="2"/><circle cx="15" cy="7" r="2"/><circle cx="5" cy="16" r="2"/><path d="M5 6v8m2-9 6 1m-6 9 6-7"/></svg>GitHub</li>
+        <li class="tool"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1"/><path d="m6 8 3 2-3 2m5 0h4"/></svg>OpenCode</li>
+        <li class="tool"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 1.5 11.7 7l5.3-2.1-3.2 4.7 4.7 3.2-5.7-.1-1.8 5.5-1.8-5.5-5.7.1 4.7-3.2L5 4.9 10.3 7 10 1.5Z"/></svg>Claude</li>
+        <li class="tool"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 4.5h14v9H9l-4 3v-3H3z"/><path d="M6.5 8h7"/></svg>ChatGPT</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Что даю команде</h2>
+      <p class="muted" style="font-size:8.5pt">Веду задачу от вводных до готового материала. Внимателен к формулировкам, документам и персональным данным. Спокойно работаю с правками.</p>
+    </section>
+  </aside>
+</div>
+
+<footer class="foot">
+  <span>Воронков Денис · контент-менеджер</span>
+  <span>Санкт-Петербург · 2026</span>
+</footer>
+
+</main></body></html>
