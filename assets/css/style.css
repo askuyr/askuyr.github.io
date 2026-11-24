@@ -234,6 +234,46 @@ h3 {
 }
 .link:hover { border-bottom-color: var(--accent); color: var(--accent); }
 
+/* Стрелки рисуем маской: символы ← → ↗ ↓ на телефонах подменяются эмодзи */
+:root {
+  --arr-r: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1 8h13M9 3l5 5-5 5' fill='none' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E");
+  --arr-l: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M15 8H2M7 3L2 8l5 5' fill='none' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E");
+  --arr-ur: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 13L13 3M5 3h8v8' fill='none' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E");
+  --arr-d: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1v13M3 9l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E");
+}
+
+.link::after,
+.bar__cta::after,
+a[target="_blank"]:not(.work__media)::after,
+.lightbox__nav::before {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: 0.62em;
+  height: 0.62em;
+  background: currentColor;
+  -webkit-mask: var(--arr-r) center / contain no-repeat;
+  mask: var(--arr-r) center / contain no-repeat;
+}
+
+a[target="_blank"]:not(.link):not(.btn):not(.work__media)::after {
+  margin-left: 0.35em;
+  vertical-align: -0.02em;
+}
+a[target="_blank"]:not(.work__media)::after {
+  -webkit-mask-image: var(--arr-ur);
+  mask-image: var(--arr-ur);
+}
+.bar__cta::after {
+  margin-left: 0.4em;
+  -webkit-mask-image: var(--arr-d);
+  mask-image: var(--arr-d);
+}
+
+.lightbox__nav { display: grid; place-items: center; padding: 0; }
+.lightbox__nav--prev::before { -webkit-mask-image: var(--arr-l); mask-image: var(--arr-l); }
+.lightbox__nav--next::before { -webkit-mask-image: var(--arr-r); mask-image: var(--arr-r); }
+
 /* ===== Первый экран ===== */
 
 .hero {
